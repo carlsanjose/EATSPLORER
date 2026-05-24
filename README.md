@@ -25,7 +25,7 @@ The system achieved a **SUS score of 79.60/100** and an **87.1% overall satisfac
 
 🤗 **ABSA Model (Hugging Face):** [Ehemjayy/EATSPLORER_REVISED](https://huggingface.co/Ehemjayy/EATSPLORER_REVISED/tree/main)
 
-🤗 **RASAModel (Hugging Face):** [Ehemjayy/Rasa_Chatbot_Model(https://huggingface.co/Ehemjayy/Rasa_Chatbot_Model/tree/main)
+🤗 **RASAModel (Hugging Face):** [Ehemjayy/Rasa_Chatbot_Model](https://huggingface.co/Ehemjayy/Rasa_Chatbot_Model/tree/main)
 
 🚀 **ABSA Inference Space (Hugging Face Spaces):** [Ehemjayy/EATSPLORER](https://huggingface.co/spaces/Ehemjayy/EATSPLORER)
 
@@ -338,7 +338,7 @@ If you use Eatsplorer, its dataset, or the fine-tuned ABSA model in academic wor
 
 **APA:**
 
-> Baltasar, M. J. L., Bolaños, L. A. C., & San Jose, C. E. L. (2026). *Eatsplorer: Enhancing food tourism in Legazpi City through a conversational AI chatbot using Aspect-Based Sentiment Analysis* [Unpublished undergraduate thesis]. Bicol University College of Science.
+> Baltasar, M. J. L., Bolaños, L. A. C., & San Jose, C. E. L. (2026). *Eatsplorer: Enhancing Food Tourism in Legazpi City Through a Conversational AI Chatbot Using Aspect-Based Sentiment Analysis* [Unpublished undergraduate thesis]. Bicol University College of Science.
 
 **BibTeX:**
 
