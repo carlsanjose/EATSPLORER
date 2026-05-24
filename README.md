@@ -25,6 +25,8 @@ The system achieved a **SUS score of 79.60/100** and an **87.1% overall satisfac
 
 🤗 **ABSA Model (Hugging Face):** [Ehemjayy/EATSPLORER_REVISED](https://huggingface.co/Ehemjayy/EATSPLORER_REVISED/tree/main)
 
+🤗 **RASAModel (Hugging Face):** [Ehemjayy/Rasa_Chatbot_Model(https://huggingface.co/Ehemjayy/Rasa_Chatbot_Model/tree/main)
+
 🚀 **ABSA Inference Space (Hugging Face Spaces):** [Ehemjayy/EATSPLORER](https://huggingface.co/spaces/Ehemjayy/EATSPLORER)
 
 ---
