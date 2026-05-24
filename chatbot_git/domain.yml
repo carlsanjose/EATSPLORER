@@ -1,0 +1,168 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - affirm
+  - deny
+  - ask_top_restaurants
+  - ask_restaurant_by_aspect
+  - ask_top_n_by_aspect
+  - ask_multi_aspect
+  - ask_restaurant_info
+  - ask_negative_warning
+  - ask_live_reviews
+  - ask_location_and_routing
+  - ask_itinerary
+  - ask_what_can_you_do
+  - ask_restaurant_by_dish
+  - ask_best_by_month
+  - out_of_scope
+
+entities:
+  - aspect
+  - restaurant_name
+  - number
+  - polarity
+  - cuisine 
+  - signature_dish
+  - month
+  - year
+
+slots:
+  aspect:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: aspect
+
+  restaurant_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: restaurant_name
+
+  number:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: number
+
+  polarity:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: polarity
+
+  last_recommended:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  cuisine:     
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: cuisine
+
+  signature_dish:
+    type: list  # Set as list to allow multiple!
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: signature_dish
+
+  month:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: month
+
+  year:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: year
+
+responses:
+  utter_greet:
+    - text: "Hi there! 🍽️ I'm Eatsplorer, your guide to the best dining spots in Legazpi City! I can recommend restaurants based on food quality, service, ambiance, or value for money. What are you looking for today?"
+    - text: "Hello! 👋 Welcome to Eatsplorer! I help you discover the best restaurants in Legazpi City using real customer reviews. Tell me what you're craving or what matters most to you!"
+
+  utter_goodbye:
+    - text: "Enjoy your meal! 😊 Come back anytime you need a dining recommendation in Legazpi City!"
+    - text: "Bon appétit! 🍴 Hope you find a great spot. Feel free to ask again anytime!"
+
+  utter_iamabot:
+    - text: "I'm Eatsplorer, a conversational AI chatbot developed to help you discover the best dining experiences in Legazpi City! I use Aspect-Based Sentiment Analysis (ABSA) on real customer reviews to power my recommendations. 🤖"
+
+  utter_affirm:
+    - text: "Great! Let me know what else you'd like to explore."
+
+  utter_deny:
+    - text: "No problem! Let me know if there's anything else I can help you with."
+
+  utter_default:
+    - text: "I'm sorry, I didn't quite understand that. I'm best at recommending restaurants in Legazpi City! You can ask me things like:\n- 'What are the top 5 restaurants?'\n- 'Which restaurants have great food quality?'\n- 'Tell me about [restaurant name]'\n- 'Best value for money restaurants?'"
+
+  utter_what_can_you_do:
+    - text: "Here's what I can help you with! 🍽️\n\n📌 **Restaurant Recommendations**\n- Top overall restaurants in Legazpi City\n- Best by aspect: food quality, service, ambiance, price-to-value, or overall sentiment\n- Multi-aspect queries (e.g., great food AND good service)\n\n📌 **Best Restaurant by Month** 📅\n- Find the top restaurant for a specific month and year\n- Monthly restaurant rankings (e.g., 'best restaurant in January 2025')\n\n📌 **Restaurant Info**\n- Detailed scores for a specific restaurant\n- Aspect breakdown (food, service, ambiance, value, overall)\n\n📌 **Examples:**\n- 'Top 5 restaurants with best food quality'\n- 'Restaurants with good ambiance'\n- 'Tell me about Bicol Express Ihaw-Ihaw'\n- 'Which restaurants are best for value?'\n- 'Best restaurant in January 2025'"
+
+  utter_ask_number:
+    - text: "How many restaurants would you like me to recommend? (e.g., top 3, top 5)"
+
+  utter_ask_month:
+    - text: "Which month are you asking about? (e.g., January, February 2025)"
+
+  utter_ask_aspect:
+    - text: "Which aspect matters most to you? 🍴 Food Quality, 🛎️ Service, 🌿 Ambiance, or 💰 Price/Value?"
+
+  utter_ask_itinerary_type:
+    - text: "What type of restaurants would you like in your itinerary? (e.g. cafes, Filipino, Korean, seafood)"
+
+  utter_ask_restaurant_for_live_reviews:
+    - text: "Which restaurant would you like me to look up recent reviews for? Just mention the name!"
+
+  utter_ask_restaurant_for_location:
+    - text: "Which restaurant would you like to find? Just mention the name!"
+
+  utter_live_reviews_unavailable:
+    - text: "Live review lookup requires a Google Places API key to be configured. Please contact the system administrator."
+
+  utter_out_of_scope:
+    - text: "I'm specialized in restaurant recommendations for Legazpi City, so I might not be able to help with that. But feel free to ask me about dining spots, food quality, service, or ambiance here in Legazpi!"
+
+actions:
+  - action_recommend_top_restaurants
+  - action_restaurant_by_aspect
+  - action_top_n_by_aspect
+  - action_multi_aspect
+  - action_restaurant_info
+  - action_negative_warning
+  - action_live_review_summary
+  - action_location
+  - action_smart_filter
+  - action_itinerary_builder
+  - action_best_by_month
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_default
+  - utter_what_can_you_do
+  - utter_out_of_scope
+  - utter_ask_number
+  - utter_ask_aspect
+  - utter_ask_month
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,1401 @@
+version: "3.1"
+ 
+nlu:
+  # ─────────────────────────────────────────────
+  # BASIC INTENTS
+  # ─────────────────────────────────────────────
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - good morning
+      - good afternoon
+      - good evening
+      - hey there
+      - hi eatsplorer
+      - hello eatsplorer
+      - hi there
+      - howdy
+      - what's up
+      - sup
+      - greetings
+      - yo
+      - good day
+      - hey eatsplorer!
+      - hello there!
+      - hiya
+      - hi bot
+      - morning!
+      - afternoon!
+      - evening!
+      - hey hey
+      - hello bot
+      - good to see you
+      - hi, I'm back
+      - hello again
+      - hey, I need help
+      - hi, can you help me?
+ 
+ 
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a robot?
+      - are you human?
+      - am I talking to a real person?
+      - are you AI?
+      - what are you?
+      - who are you?
+      - who made you?
+      - are you ChatGPT?
+      - are you powered by AI?
+      - who created you?
+      - are you a real person?
+      - is this a chatbot?
+      - are you an actual person?
+      - is someone there?
+      - am I talking to a machine?
+      - is this AI?
+      - are you a virtual assistant?
+      - is this automated?
+      - who built you?
+      - what kind of AI are you?
+      - are you like Siri?
+      - are you like Alexa?
+      - are you a computer?
+      - is this a real human I'm talking to?
+      - are you sentient?
+
+  - intent: ask_what_can_you_do
+    examples: |
+      - what can you do?
+      - how can you help me?
+      - what are your features?
+      - help me
+      - help
+      - what do you offer?
+      - what kind of questions can I ask?
+      - how do I use this?
+      - what is this chatbot for?
+      - show me what you can do
+      - give me examples
+      - how does this work?
+      - how do you work?
+      - what questions can I ask?
+      - what is eatsplorer?
+      - tell me about yourself
+      - what are you capable of?
+      - what services do you provide?
+      - I'm not sure how to use you
+      - what topics can you help with?
+      - can you explain what you do?
+      - what's your purpose?
+      - what can I ask you?
+      - how can I make use of you?
+      - give me a tour
+      - walk me through your features
+      - what food-related help can you give?
+      - what restaurant info can you provide?
+      - are you only for restaurants in legazpi?
+ 
+  # ─────────────────────────────────────────────
+  # RESTAURANT RECOMMENDATION INTENTS
+  # ─────────────────────────────────────────────
+ 
+  - intent: ask_top_restaurants
+    examples: |
+      - what are the top restaurants in legazpi?
+      - best restaurants in legazpi city
+      - recommend some restaurants
+      - give me restaurant recommendations
+      - where should I eat in legazpi?
+      - what restaurants do you recommend?
+      - top dining spots in legazpi
+      - best places to eat
+      - suggest a restaurant
+      - where can I eat?
+      - best food in legazpi
+      - top rated restaurants
+      - highly recommended restaurants
+      - most popular restaurants in legazpi city
+      - what's good to eat here in legazpi?
+      - where to dine in legazpi city?
+      - what are the must try restaurants?
+      - best restaurants near legazpi
+      - any good restaurant recommendations?
+      - top restaurants legazpi
+      - which places are an absolute must visit?
+      - show me places that everyone loves
+      - what are the hottest restaurants right now?
+      - where do I absolutely have to eat?
+      - what is the highest rated restaurant?
+      - which restaurant has the best overall score?
+      - what is the number one restaurant in legazpi?
+      - best overall restaurant
+      - top rated restaurant overall
+      - what restaurant scores the highest?
+      - restaurant with the highest rating
+      - which restaurant is the best?
+      - number one dining spot
+      - the absolute best restaurant in legazpi city
+      - where should I eat today?
+      - I'm hungry, where to go?
+      - suggest somewhere to eat in legazpi
+      - any recommendations for food in legazpi?
+      - good places to grab a meal in legazpi
+      - where is the best dining experience in legazpi?
+      - where do locals eat in legazpi?
+      - I just arrived in legazpi, where to eat?
+      - best restaurants to visit in legazpi city
+      - top places to eat out in legazpi
+      - what's the most popular food spot in legazpi?
+      - give me your best restaurant pick
+      - what restaurant is worth visiting?
+      - restaurants that are [positively](polarity) reviewed
+      - only [positive](polarity) restaurants
+      - restaurants with [positive](polarity) feedback
+      - show me restaurants with [positive](polarity) reviews
+      - which restaurants have [positive](polarity) ratings?
+      - restaurants that customers love
+      - restaurants with [positive](polarity) overall sentiment
+      - highly [positive](polarity) restaurants
+      - restaurants that are well received
+      - give me only [positive](polarity) restaurants
+      - places that people are raving about
+      - show me restaurants with five star feedback
+      - which places have glowing reviews?
+      - restaurants that everyone is praising
+      - only show me good restaurants
+      - restaurants with great overall feedback
+      - which places are highly recommended by customers?
+      - give me restaurants that people love
+      - restaurants with all good reviews
+      - places with consistent [positive](polarity) ratings
+      - which restaurants have happy customers?
+      - I only want well-reviewed restaurants
+      - restaurants that never disappoint
+      - places with overwhelmingly [positive](polarity) reviews
+      - top reviewed restaurants by customers
+      - what restaurants do people rave about in legazpi?
+      - best [Korean](cuisine) restaurants in legazpi
+      - top [Filipino](cuisine) dining spots in legazpi
+      - best [café](cuisine) in legazpi city
+      - top [seafood](cuisine) restaurants in legazpi
+      - best [Japanese](cuisine) restaurant in legazpi
+      - which [café](cuisine) is most popular in legazpi?
+      - what is the most recommended [Filipino](cuisine) restaurant?
+      - most loved [Korean](cuisine) place in legazpi
+      - top rated [restobar](cuisine) in legazpi city
+      - best [breakfast](cuisine) spots in legazpi
+      - most popular [pizza](cuisine) place in legazpi
+      - best [ramen](cuisine) restaurant in legazpi
+      - what are the highest rated [café](cuisine) in legazpi?
+      - most visited [Filipino](cuisine) restaurants in legazpi
+      - recommend the best [seafood](cuisine) place in legazpi
+      - top [grill](cuisine) restaurants in legazpi
+ 
+  # ─────────────────────────────────────────────
+  # ASPECT-BASED INTENTS
+  # ─────────────────────────────────────────────
+ 
+  - intent: ask_restaurant_by_aspect
+    examples: |
+      - restaurants with great [food quality](aspect)
+      - places with excellent [food](aspect)
+      - best [food quality](aspect) restaurants
+      - restaurants known for good [food](aspect)
+      - where can I get amazing [food quality](aspect)?
+      - restaurants with great [service](aspect)
+      - places with excellent [service](aspect)
+      - best [service](aspect) in legazpi
+      - restaurants known for good [service](aspect)
+      - where do they treat customers well? [service](aspect)
+      - restaurants with nice [ambiance](aspect)
+      - places with good [atmosphere](aspect)
+      - best [ambiance](aspect) restaurants
+      - restaurants with good [vibe](aspect)
+      - nice [ambiance](aspect) restaurants in legazpi
+      - restaurants with good [price](aspect)
+      - best [value for money](aspect) restaurants
+      - affordable restaurants with good [price-to-value](aspect)
+      - where can I eat without breaking the bank [price value](aspect)
+      - best [price value](aspect) in legazpi
+      - restaurants with great [value](aspect)
+      - where is the [food](aspect) delicious?
+      - restaurants with high [food quality](aspect) ratings
+      - good [service](aspect) restaurants in legazpi city
+      - which places have cozy [ambiance](aspect)?
+      - restaurants famous for their [food](aspect)
+      - recommend based on [ambiance](aspect)
+      - which restaurants are best for [food quality](aspect)?
+      - restaurants with excellent [price value](aspect)
+      - find me a [café](cuisine) with good [price value](aspect)
+      - cheap [coffee shop](cuisine) with nice [ambiance](aspect)
+      - affordable [Filipino](cuisine) restaurant with good [food quality](aspect)
+      - [Korean](cuisine) restaurant with good [service](aspect)
+      - budget [Japanese](cuisine) place with great [food](aspect)
+      - [café](cuisine) with the best [ambiance](aspect) in legazpi
+      - I want a [café](cuisine) that is [budget-friendly](aspect)
+      - good [Filipino](cuisine) restaurant that is [affordable](aspect)
+      - [fast food](cuisine) with good [price value](aspect)
+      - [Japanese](cuisine) with great [food quality](aspect)
+      - [Korean](cuisine) bbq with good [ambiance](aspect)
+      - nice [café](cuisine) with great [food](aspect) and good [service](aspect)
+      - looking for a [Filipino](cuisine) restaurant with good [ambiance](aspect)
+      - [seafood](cuisine) restaurant with great [food quality](aspect)
+      - a [bar](cuisine) with good [service](aspect)
+      - [grill](cuisine) place with the best [food](aspect)
+      - cheap [ramen](cuisine) restaurant
+      - budget-friendly [café](cuisine)
+      - affordable [Filipino](cuisine) restaurant
+      - where can I find a [café](cuisine) with great [food quality](aspect)?
+      - suggest a [Filipino](cuisine) restaurant with good [price value](aspect)
+      - I want a restaurant with excellent [food](aspect)
+      - recommend places with top [service](aspect) in legazpi
+      - which restaurants have the best [ambiance](aspect)?
+      - I'm looking for somewhere with a nice [vibe](aspect)
+      - any [café](cuisine) with amazing [food](aspect)?
+      - best [seafood](cuisine) restaurant for [food quality](aspect) in legazpi
+      - [Italian](cuisine) restaurant with good [ambiance](aspect) in legazpi
+      - where can I find a [bar](cuisine) with good [price value](aspect)?
+      - [buffet](cuisine) with great [food quality](aspect)
+      - [pizza](cuisine) place with good [service](aspect)
+      - [chicken](cuisine) restaurant with the best [food](aspect)
+      - I want a [sizzling](cuisine) place with nice [ambiance](aspect)
+      - [lomi](cuisine) place with great [food quality](aspect)
+      - [silog](cuisine) place with good [price value](aspect)
+      - [mami](cuisine) restaurant with excellent [service](aspect)
+      - where can I get great [pasta](cuisine) with good [ambiance](aspect)?
+      - [steak](cuisine) restaurant with great [food quality](aspect)
+      - best [restobar](cuisine) with nice [vibe](aspect)
+      - [snack](cuisine) place with affordable [price value](aspect)
+      - any good [breakfast](cuisine) place with great [service](aspect)?
+      - I want good [coffee](cuisine) with a nice [atmosphere](aspect)
+      - restaurant with the best [taste](aspect)
+      - places with amazing [flavors](aspect)
+      - where do they have the best [cuisine](aspect) in legazpi?
+      - restaurant with great [dishes](aspect)
+      - places praised for their [hospitality](aspect)
+      - restaurants with friendly [staff](aspect)
+      - places with clean and nice [decor](aspect)
+      - restaurants with a good [setting](aspect)
+      - budget friendly [Korean](cuisine) place
+      - find a [Korean](cuisine) place that serves [samgyupsal](signature_dish)
+      - who has the best [bicol express](signature_dish) with good [ambiance](aspect)?
+      - [pizza](signature_dish) places with excellent [service](aspect) and [food quality](aspect)
+      - looking for [sisig](signature_dish) and [bulalo](signature_dish)
+      - I want [Filipino](cuisine) and [Japanese](cuisine) food
+      - best [Bicolano](cuisine) restaurant with great [food quality](aspect)
+      - any [milk tea](cuisine) place with good [service](aspect)?
+      - [Vietnamese](cuisine) restaurant with nice [ambiance](aspect) in legazpi
+      - [Indian](cuisine) restaurant with good [price value](aspect)
+      - [dim sum](cuisine) restaurant with great [food quality](aspect)
+      - find me a [sushi](cuisine) bar with great [food quality](aspect)
+      - [burger](cuisine) place with the best [food](aspect)
+      - [hotpot](cuisine) restaurant with good [value](aspect)
+      - good [dessert](cuisine) place with great [ambiance](aspect)
+      - [shawarma](cuisine) place with good [price value](aspect)
+      - [Mexican](cuisine) restaurant with nice [vibe](aspect)
+      - [fusion](cuisine) restaurant with excellent [food quality](aspect)
+      - [Mediterranean](cuisine) place with great [ambiance](aspect)
+      - affordable [ramen](cuisine) restaurant with good [service](aspect)
+      - [sushi](cuisine) bar with good [ambiance](aspect) in legazpi
+      - [buffet](cuisine) place with good [price value](aspect)
+      - [steak](cuisine) house with the best [food quality](aspect)
+      - cheap [mami](cuisine) place with friendly [service](aspect)
+      - [Bicolano](cuisine) food place with cozy [atmosphere](aspect)
+      - find a [Korean BBQ](cuisine) with good [price value](aspect)
+      - looking for [café](cuisine) with good [value](aspect) in legazpi
+      - best [Thai](cuisine) restaurant with nice [ambiance](aspect)
+      - [Filipino](cuisine) carinderia with great [food quality](aspect)
+      - budget [Korean](cuisine) restaurant in legazpi with nice [vibe](aspect)
+      - any good [breakfast](cuisine) spot with great [food](aspect)?
+      - [Japanese](cuisine) restaurant with the best [price value](aspect)
+      - [pizza](cuisine) place with cozy [ambiance](aspect) in legazpi
+      - cheap [Chinese](cuisine) restaurant with good [service](aspect)
+      - looking for a [restobar](cuisine) with great [food quality](aspect) and good [vibe](aspect)
+      - where can I find [Korean](cuisine) restaurant with great [food](aspect) and [service](aspect)?
+      - find a [café](cuisine) with the best [ambiance](aspect) and good [price value](aspect)
+      - [seafood](cuisine) place with good [food quality](aspect) and [service](aspect)
+      - which [Filipino](cuisine) restaurant has the best [food quality](aspect) and [value](aspect)?
+
+  - intent: ask_top_n_by_aspect
+    examples: |
+      - top [5](number) restaurants with best [food quality](aspect)
+      - give me [3](number) restaurants with great [service](aspect)
+      - [10](number) best [ambiance](aspect) restaurants
+      - top [5](number) [food quality](aspect) restaurants
+      - show me [3](number) restaurants with good [value](aspect)
+      - best [5](number) places for [food](aspect)
+      - [5](number) restaurants with nice [ambiance](aspect)
+      - top [3](number) restaurants for [service](aspect)
+      - list [5](number) restaurants with the best [food quality](aspect)
+      - give me the top [3](number) places for [price value](aspect)
+      - top [10](number) restaurants for [food quality](aspect)
+      - best [5](number) restaurants with excellent [service](aspect)
+      - [3](number) restaurants good for [ambiance](aspect)
+      - top [5](number) overall restaurants
+      - top [3](number) best restaurants
+      - give me [5](number) restaurant recommendations
+      - [10](number) top rated restaurants in legazpi
+      - list the top [5](number) restaurants
+      - what are the top [3](number) restaurants?
+      - give me [3](number) restaurant recommendations
+      - what are the top [10](number) best restaurants to visit overall?
+      - show me [10](number) restaurants in legazpi
+      - give me [10](number) dining recommendations
+      - what are the [10](number) best places to eat in legazpi?
+      - top [10](number) restaurants legazpi city
+      - list [10](number) restaurants
+      - [10](number) best restaurants overall
+      - top [2](number) restaurants for [ambiance](aspect)
+      - give me [4](number) cafes with great [food quality](aspect)
+      - best [3](number) places for [price value](aspect) in legazpi
+      - show me [5](number) restaurants with the best [service](aspect)
+      - list [3](number) restaurants with excellent [food](aspect)
+      - top [7](number) restaurants in legazpi
+      - give me [6](number) highly rated restaurants
+      - what are the top [5](number) restaurants by [ambiance](aspect)?
+      - best [10](number) restaurants for [value](aspect)
+      - top [5](number) [Korean](cuisine) restaurants in legazpi
+      - best [3](number) [Filipino](cuisine) restaurants in legazpi city
+      - top [10](number) [café](cuisine) in legazpi city
+      - give me [5](number) [Japanese](cuisine) restaurants
+      - list [3](number) [seafood](cuisine) places in legazpi
+      - show me [5](number) [café](cuisine) with great [food quality](aspect)
+      - top [3](number) [Korean](cuisine) places with good [service](aspect)
+      - best [5](number) [Filipino](cuisine) restaurants with nice [ambiance](aspect)
+      - give me [4](number) [seafood](cuisine) restaurants with great [food quality](aspect)
+      - top [5](number) [ramen](cuisine) places in legazpi
+      - list [3](number) [pizza](cuisine) restaurants
+      - what are the top [5](number) [Korean](cuisine) restaurants?
+      - best [3](number) [Japanese](cuisine) places with good [price value](aspect)
+      - top [5](number) [buffet](cuisine) restaurants in legazpi
+      - give me [10](number) [café](cuisine) recommendations
+      - show me [3](number) [grill](cuisine) places
+      - what are the top [5](number) [Filipino](cuisine) dining spots?
+      - list [5](number) [restobar](cuisine) with good [ambiance](aspect)
+      - best [3](number) [chicken](cuisine) places in legazpi
+      - top [5](number) [fast food](cuisine) restaurants with great [value](aspect)
+      - [5](number) best [Korean BBQ](cuisine) restaurants
+      - what are the top [3](number) [café](cuisine) for [ambiance](aspect)?
+      - give me [5](number) [lomi](cuisine) places
+      - top [3](number) [mami](cuisine) restaurants
+      - list [5](number) [silog](cuisine) spots
+      - show me [3](number) [grill](cuisine) places with good [food quality](aspect)
+      - top [4](number) [pizza](cuisine) restaurants with best [service](aspect)
+      - best [5](number) [Japanese](cuisine) restaurants for [ambiance](aspect)
+      - [3](number) top [Filipino](cuisine) places with good [price value](aspect)
+      - top [5](number) [breakfast](cuisine) spots in legazpi
+      - give me [5](number) [restobar](cuisine) with great [vibe](aspect)
+      - top [5](number) [Korean](cuisine) restaurants with great [food quality](aspect)
+      - best [3](number) [café](cuisine) with excellent [service](aspect)
+      - top [5](number) [seafood](cuisine) restaurants with best [ambiance](aspect)
+      - give me [3](number) [Filipino](cuisine) places with great [price value](aspect)
+      - [5](number) [Korean](cuisine) restaurants with good [ambiance](aspect)
+      - top [3](number) [Japanese](cuisine) restaurants with best [food](aspect)
+      - list [5](number) [café](cuisine) with the best [price value](aspect)
+      - best [4](number) [grill](cuisine) spots with great [food quality](aspect) in legazpi
+      - show me [3](number) [Korean BBQ](cuisine) with great [service](aspect)
+      - top [5](number) [Bicolano](cuisine) restaurants with high [food quality](aspect)
+      - [3](number) best [fusion](cuisine) restaurants with good [ambiance](aspect)
+      - give me [5](number) [dessert](cuisine) places with nice [vibe](aspect)
+      - top [3](number) [burger](cuisine) places with the best [food](aspect)
+      - best [5](number) [sushi](cuisine) restaurants in legazpi
+      - [4](number) [Vietnamese](cuisine) restaurants with good [price value](aspect)
+ 
+  - intent: ask_multi_aspect
+    examples: |
+      - restaurants with great [food quality](aspect) and good [service](aspect)
+      - places with nice [ambiance](aspect) and good [food](aspect)
+      - restaurants good in both [food quality](aspect) and [price value](aspect)
+      - where can I find good [food](aspect) with great [ambiance](aspect)?
+      - restaurants with excellent [service](aspect) and [ambiance](aspect)
+      - best restaurants for [food quality](aspect) [service](aspect) and [ambiance](aspect)
+      - places with good [price value](aspect) and [food quality](aspect)
+      - restaurants that have both great [food](aspect) and nice [ambiance](aspect)
+      - where is the [service](aspect) and [food quality](aspect) both excellent?
+      - restaurants good for [ambiance](aspect) and [price value](aspect)
+      - best of [food quality](aspect) and [service](aspect)
+      - good [food quality](aspect) great [ambiance](aspect) restaurant
+      - I want good [food](aspect) and also great [service](aspect)
+      - restaurants with top [food quality](aspect) and [service](aspect)
+      - best in [food](aspect) and [value](aspect)
+      - places good for [food quality](aspect) and [service](aspect)
+      - find me somewhere with great [food](aspect) and affordable [price value](aspect)
+      - I need good [food quality](aspect) and a cozy [ambiance](aspect)
+      - restaurant with excellent [service](aspect) and reasonable [price value](aspect)
+      - places that score well in [food quality](aspect) and [ambiance](aspect)
+      - where can I enjoy good [food](aspect) and good [service](aspect)?
+      - suggest restaurants with both great [food quality](aspect) and nice [atmosphere](aspect)
+      - I want a place with nice [vibe](aspect) and tasty [food](aspect)
+      - best [ambiance](aspect) with best [food quality](aspect)
+      - restaurant that balances [price value](aspect) and [food quality](aspect)
+      - looking for a [Korean](cuisine) place with good [ambiance](aspect) that serves [samgyeopsal](signature_dish)
+      - where to get [cheap](aspect:price_value) [bicol express](signature_dish)
+      - I want a [Filipino](cuisine) restaurant with great [service](aspect) and [crispy pata](signature_dish)
+      - [affordable](aspect:price_value) [ramen](signature_dish) with nice [atmosphere](aspect:ambiance)
+      - I want both great [food quality](aspect) and nice [ambiance](aspect) in one place
+      - restaurants that are great in [food](aspect) as well as [service](aspect)
+      - find somewhere that excels in both [service](aspect) and [price value](aspect)
+      - places that score high in [food quality](aspect) AND [service](aspect) simultaneously
+      - I need [ambiance](aspect) AND [food quality](aspect) both to be excellent
+      - suggest restaurants with outstanding [service](aspect) alongside great [food](aspect)
+      - where can I find excellent [food quality](aspect) plus affordable [price value](aspect)?
+      - restaurants that score well in both [ambiance](aspect) and [food quality](aspect)
+      - I want top marks in both [food](aspect) and [value](aspect)
+      - places that are strong in [food quality](aspect) [service](aspect) and [ambiance](aspect) all together
+      - find me a place that balances [food quality](aspect) [service](aspect) and [price value](aspect)
+      - restaurants that are good in all aspects: [food](aspect) [service](aspect) and [ambiance](aspect)
+      - I want great [food quality](aspect) and [service](aspect) and also good [price value](aspect)
+      - places with equally great [ambiance](aspect) and [food quality](aspect)
+      - restaurants that combine nice [atmosphere](aspect) with amazing [food](aspect) and fair [price](aspect)
+      - find a [Korean](cuisine) restaurant with good [food quality](aspect) and [ambiance](aspect)
+      - looking for a [café](cuisine) with both nice [vibe](aspect) and good [price value](aspect)
+      - [Filipino](cuisine) restaurant with great [food quality](aspect) and [service](aspect) and [ambiance](aspect)
+      - [Japanese](cuisine) place with good [food](aspect) and [price value](aspect) at the same time
+      - show me [café](cuisine) that scores well in both [service](aspect) and [ambiance](aspect)
+      - want a [seafood](cuisine) restaurant with great [food quality](aspect) and affordable [price](aspect)
+      - [restobar](cuisine) with great [vibe](aspect) and tasty [food quality](aspect) at the same time
+      - places with both outstanding [service](aspect) and excellent [food quality](aspect)
+      - restaurants praised for [food](aspect) and [service](aspect) equally
+      - I want a spot with consistently good [ambiance](aspect) and [food quality](aspect)
+
+ 
+  - intent: ask_negative_warning
+    examples: |
+      - which restaurants have [negative](polarity) reviews?
+      - restaurants with bad reviews
+      - places with [negative](polarity) feedback
+      - restaurants with [negative](polarity) sentiment
+      - which places have bad [service](aspect)?
+      - restaurants with poor [food quality](aspect)
+      - which restaurants have [negative](polarity) food quality?
+      - places with bad [ambiance](aspect)
+      - restaurants with [negative](polarity) [service](aspect) ratings
+      - warn me about places with [negative](polarity) [food](aspect)
+      - show me restaurants with [negative](polarity) scores for [price value](aspect)
+      - places people complain about [ambiance](aspect)
+      - which restaurants have a [negative](polarity) score?
+      - give me places with [negative](polarity) reviews overall
+      - restaurants with awful [customer service](aspect)
+      - are there restaurants with [negative](polarity) [value for money](aspect)?
+      - restaurants heavily criticized for their [food](aspect)
+      - places getting [negative](polarity) feedback on [service](aspect)
+      - show me restaurants marked as [negative](polarity)
+      - which dining spots have [negative](polarity) [ambiance](aspect)?
+      - restaurants with a [negative](polarity) rating for [price](aspect)
+      - find me places with [negative](polarity) customer feedback
+      - what restaurants have [negative](polarity) [food quality](aspect) reviews?
+      - list the places with [negative](polarity) [service](aspect)
+      - which spots are rated [negative](polarity) for [atmosphere](aspect)?
+      - places getting terrible reviews online
+      - which restaurants are getting complaints?
+      - warn me about places with bad feedback
+      - what are the worst restaurants in legazpi?
+      - lowest rated restaurants
+      - which restaurant has the worst overall score?
+      - worst restaurants
+      - bottom restaurants
+      - restaurants to avoid
+      - lowest scoring places to eat
+      - give me the worst dining spots
+      - what is the absolute worst restaurant?
+      - which places should I never visit in legazpi?
+      - tell me the lowest ranking food spots
+      - restaurants with the absolute lowest scores
+      - what's the bottom rated place to eat here?
+      - show me the absolute worst dining experiences
+      - which restaurants are terrible overall?
+      - give me a list of the lowest rated restaurants
+      - which eateries have the worst overall rating?
+      - show me the lowest ranked dining spots
+      - which restaurants have the lowest overall ABSA score?
+      - what is the most poorly rated restaurant in your database?
+      - show me the bottom of the barrel restaurants
+      - restaurants with the worst overall ranking
+      - what places are at the bottom of the list?
+      - identify the lowest scoring restaurant overall
+      - what is the absolute lowest rated place?
+      - restaurants with bad [food quality](aspect)
+      - places with terrible [food](aspect)
+      - worst [food quality](aspect) restaurants
+      - where is the [service](aspect) really bad?
+      - restaurants with the worst [service](aspect)
+      - places with awful [ambiance](aspect)
+      - worst [ambiance](aspect) restaurants
+      - restaurants with terrible [price](aspect)
+      - worst [value for money](aspect) restaurants
+      - rip off restaurants [price value](aspect)
+      - restaurants with lowest [food quality](aspect) ratings
+      - bad [service](aspect) restaurants in legazpi city
+      - bottom [5](number) restaurants with worst [food quality](aspect)
+      - give me [3](number) restaurants with bad [service](aspect)
+      - [10](number) worst [ambiance](aspect) restaurants
+      - bottom [5](number) [food quality](aspect) restaurants
+      - show me [3](number) restaurants with terrible [value](aspect)
+      - worst [5](number) places for [food](aspect)
+      - [5](number) restaurants with bad [ambiance](aspect)
+      - bottom [3](number) restaurants for [service](aspect)
+      - list [5](number) restaurants with the worst [food quality](aspect)
+      - bottom [10](number) overall restaurants
+      - bottom [3](number) worst restaurants
+      - what are the bottom [5](number) restaurants?
+      - restaurants I should avoid in legazpi
+      - which places disappointed customers the most?
+      - where did people have the worst experience?
+      - restaurants with consistently bad feedback
+      - places that people regret visiting
+      - dining spots with the most complaints
+      - which restaurant is the most overrated?
+      - places that don't live up to the hype
+      - restaurants where customers feel ripped off
+      - which places have the lowest [food quality](aspect) score?
+      - restaurants where the [service](aspect) is really poor
+      - give me restaurants with the worst [ambiance](aspect)
+      - which places have the most [negative](polarity) reviews for [food](aspect)?
+      - restaurants that score low in [price value](aspect)
+      - places with many complaints about [service](aspect)
+      - worst reviewed [café](cuisine) in legazpi
+      - lowest rated [Filipino](cuisine) restaurant
+      - [Korean](cuisine) restaurant with bad [service](aspect)
+      - [seafood](cuisine) restaurant with poor [food quality](aspect)
+      - [café](cuisine) with the worst [ambiance](aspect)
+      - worst [price value](aspect) restaurant in legazpi
+      - places with the lowest [ambiance](aspect) rating
+      - restaurants that keep getting bad reviews online
+      - which [3](number) restaurants have the worst [food quality](aspect)?
+      - bottom [5](number) for [service](aspect)
+      - worst [10](number) restaurants for [ambiance](aspect)
+      - bottom [3](number) restaurants for [price value](aspect)
+      - lowest [5](number) rated restaurants in legazpi
+ 
+  # ─────────────────────────────────────────────
+  # RESTAURANT INFO INTENT
+  # ─────────────────────────────────────────────
+ 
+  - intent: ask_restaurant_info
+    examples: |
+      - tell me about [Alea Chocolates Cafe](restaurant_name)
+      - what are the scores for [Calle Taza Cafe](restaurant_name)?
+      - how is [Mamay's](restaurant_name) rated in the database?
+      - give me details about [BridgeWalk Brew Cafe](restaurant_name)
+      - what is the overall score for [Little Light Cafe](restaurant_name)?
+      - how does [Bec. Cafe](restaurant_name) score?
+      - show me the restaurant info for [Lofty Grounds Cafe](restaurant_name)
+      - info on [Mr. HeBrews Cafe](restaurant_name)
+      - what is the rating of [528 Ilawod Cafe](restaurant_name)?
+      - how good is the rating for [Assemblr Cafe](restaurant_name)?
+      - give me a breakdown of [Primeroasting Cafe And Kitchen](restaurant_name)
+      - display the scores for [Spice-Up](restaurant_name)
+      - what about [Casa Lorenzo Food And Culture](restaurant_name)?
+      - tell me more details about [Arang Resto Bar](restaurant_name)
+      - information on [Kape Zebra](restaurant_name)
+      - how is the food rated at [Yangmatt Unli Wings N Tea Legazpi](restaurant_name)?
+      - is [Golden Dragon Restaurant](restaurant_name) rated highly?
+      - what are the details for [Figaro Coffee](restaurant_name)?
+      - what's the rating of [Smoke 'N Grill](restaurant_name)?
+      - details on [Tapsilogan At Kinalas ni Bekla](restaurant_name)
+      - show me the breakdown for [Cres Snack Inn](restaurant_name)
+      - tell me the ratings for [Zoe's Kitchen](restaurant_name)
+      - how does [Jiah Kitchen](restaurant_name) rate?
+      - what is the score of [Primos Pares](restaurant_name)?
+      - can you give me the information on [Sibid-Sibid Food Park](restaurant_name)?
+      - info about this restaurant [Kim's Bowl Food Garden](restaurant_name)
+      - show me the ratings for [1st Colonial Grill](restaurant_name)
+      - what is the score for [Bigg's Diner](restaurant_name)?
+      - give me the restaurant overview for [Small Talk Café](restaurant_name)
+      - fetch the details for [I Love Bamboo](restaurant_name)
+      - I want to know more about [Pepa Wings](restaurant_name)
+      - review summary for [Breakfast Republik](restaurant_name)
+      - how good is [KIN Coffee](restaurant_name)?
+      - what do people think about [Rockport Café](restaurant_name)?
+      - give me the scores for [Lola's Bistro](restaurant_name)
+      - what are the aspect scores for [Seoul Korean Restaurant](restaurant_name)?
+      - how is [Gringo](restaurant_name) rated overall?
+      - what are customers saying about [Hap Chan](restaurant_name)?
+      - overall rating for [Kyukyu Ramen](restaurant_name)
+      - how highly rated is [Kuya J Restaurant](restaurant_name)?
+      - what is [Kapihan](restaurant_name) known for?
+      - can you pull up info on [Tong Yang](restaurant_name)?
+      - tell me about [Coffee Capsules](restaurant_name)
+      - what are the scores for [lakshmi](restaurant_name)
+      - how is [kin coffee](restaurant_name) rated
+      - info on [koki lounge](restaurant_name)
+      - give me a breakdown of [four seasons](restaurant_name)
+      - details on [mcdo](restaurant_name)
+      - rating for [jolibee](restaurant_name)
+      - info about [1st colonial](restaurant_name)
+      - score for [sr pizza](restaurant_name)
+      - what about [chow king](restaurant_name)
+      - details for [bees coffee house](restaurant_name)
+      - tell me about [black scoop](restaurant_name)
+      - info on [kuya j](restaurant_name)
+      - [angels](restaurant_name)
+      - [don pollo](restaurant_name)
+      - [kin](restaurant_name) legazpi
+
+  # ─────────────────────────────────────────────
+  # BEST BY MONTH INTENT
+  # ─────────────────────────────────────────────
+
+  - intent: ask_best_by_month
+    examples: |
+      - top [5](number) restaurants for [January](month) [2026](year)
+      - top [3](number) restaurants for [February](month) [2025](year)
+      - top [5](number) restaurants in [March](month) [2026](year)
+      - best [5](number) restaurants in [January](month) [2026](year)
+      - best [3](number) restaurants for [December](month) [2024](year)
+      - show me top [5](number) for [January](month) [2026](year)
+      - top [5](number) for [February](month) [2025](year)
+      - top [10](number) restaurants in [June](month) [2025](year)
+      - best [5](number) dining spots in [March](month) [2025](year)
+      - top [5](number) restaurants [January](month) [2026](year)
+      - give me the top [5](number) restaurants for [January](month) [2026](year)
+      - what are the top [5](number) restaurants for [January](month) [2026](year)?
+      - top [5](number) best restaurants for [January](month) [2026](year)
+      - best restaurants in [january](month) [2026](year)
+      - top restaurants in [january](month) [2026](year)
+      - best restaurant this month
+      - top restaurant this month
+      - which restaurant was best in [January](month)?
+      - what was the top restaurant in [February](month)?
+      - best restaurant in [March](month)
+      - top dining spot in [April](month)
+      - which restaurant scored highest in [May](month)?
+      - best restaurant for [June](month)
+      - top restaurant last month
+      - what restaurant was the most popular in [July](month)?
+      - best restaurant in [August](month) [2024](year)
+      - top restaurant for [September](month) [2025](year)
+      - which restaurant was best in [October](month)?
+      - best place to eat in [November](month)
+      - top restaurants for [December](month) [2024](year)
+      - which restaurant scored highest in [January](month) [2025](year)?
+      - what was the best restaurant in [February](month) [2024](year)?
+      - best restaurant in [March](month) [2025](year)
+      - top restaurant of [April](month) [2024](year)
+      - best dining spot for [May](month) [2025](year)
+      - who was the top restaurant in [June](month) [2024](year)?
+      - restaurant of the month for [July](month)
+      - which place had the highest score in [August](month) [2025](year)?
+      - top rated restaurant in [September](month)
+      - best restaurant ranking for [October](month) [2024](year)
+      - what restaurant dominated in [November](month) [2025](year)?
+      - best restaurant of the month
+      - monthly best restaurant
+      - who was best this month?
+      - restaurant of the month
+      - what is the best restaurant for this month?
+      - show me the top restaurant this month
+      - which restaurant is currently the best?
+      - best restaurant ranking this month
+      - top rated restaurant for the current month
+      - who won best restaurant this month?
+      - what restaurant had the highest score last month?
+      - which restaurant was number one in [Jan](month)?
+      - best restaurant in [Feb](month) [2025](year)
+      - top place in [Mar](month)
+      - best dining spot [Apr](month) [2024](year)
+      - highest rated restaurant in [Jun](month) [2025](year)
+      - who topped the list in [Jul](month)?
+      - top restaurant [Aug](month) [2024](year)
+      - best place [Sep](month) [2025](year)
+      - highest scoring restaurant [Oct](month)
+      - best restaurant in [Nov](month) [2024](year)
+      - top dining spot [Dec](month) [2025](year)
+      - show me the best restaurant for each month
+      - monthly restaurant rankings
+      - best restaurant per month in legazpi
+      - top restaurants every month
+      - monthly top restaurant list
+      - which restaurant was best each month in [2024](year)?
+      - show me monthly rankings for [2025](year)
+      - best restaurants by month in legazpi
+
+
+  - intent: out_of_scope
+    examples: |
+      - can you book a table for me?
+      - I want to make a reservation
+      - reserve a table for two tonight at 7pm
+      - can you book me a spot at 1st Colonial?
+      - book a hotel room for me
+      - find me a cheap hotel in legazpi
+      - I need a place to stay tonight
+      - help me find a cheap place to sleep
+      - can you order food for me?
+      - where can I stay in legazpi city?
+      - do they deliver?
+      - I want to order a pizza right now
+      - can you send Foodpanda to my house?
+      - order 2 bicol express for delivery
+      - what is their phone number for delivery?
+      - how much is the delivery fee?
+      - what is the menu?
+      - show me the full menu for Bigg's Diner
+      - show me the menu for Jollibee
+      - how much does it cost exactly?
+      - what is the exact price of the pinangat?
+      - how much is the food there?
+      - do they serve coke or pepsi?
+      - send me a picture of their menu
+      - how do I get to legazpi from manila?
+      - how do I travel to bicol?
+      - what are the tourist spots in legazpi?
+      - book a flight to legazpi city
+      - how much is a bus ticket to bicol?
+      - where can I rent a car?
+      - tell me about the history of Mayon Volcano
+      - where can I buy souvenirs?
+      - what is the weather today?
+      - is it going to rain in legazpi later?
+      - what's the news today?
+      - who won the basketball game?
+      - what time is the sunset?
+      - read me the daily headlines
+      - tell me a joke
+      - what movies are showing at SM Legazpi?
+      - translate this for me
+      - write an essay about food
+      - do my math homework
+      - sing me a song
+      - what is the meaning of life?
+      - can you write code in Python?
+      - solve this equation for me
+      - what day is it today?
+      - flip a coin
+      - roll a dice
+      - what is the capital of France?
+      - can you teach me how to cook adobo?
+      - can you call the restaurant for me?
+      - is the restaurant open right now?
+      - what time does Bigg's Diner close?
+      - does 1st Colonial Grill have wifi?
+      - is there parking at Small Talk Café?
+      - can I pay with GCash there?
+      - do they accept credit card?
+      - is the restaurant pet friendly?
+      - do they have vegetarian options?
+      - can you make me a grocery list?
+      - how do I cook bicol express?
+      - I need a recipe for kare kare
+      - recommend a good recipe app
+      - what's the capital of Japan?
+      - can you recommend a good salon in legazpi?
+      - help me find a gym near me
+      - do you know any good dentist in legazpi?
+      - find me a spa in legazpi
+      - can you write a poem for me?
+      - tell me a fun fact about Bicol
+      - where can I buy clothes in legazpi?
+      - help me find a hardware store
+      - can I pay using Maya?
+      - what are the parking rates near SM?
+      - is this restaurant halal certified?
+      - show me their Instagram page
+      - do they have a loyalty card?
+      - what are their operating hours?
+      - what time do they open?
+      - what time does this restaurant close?
+      - recommend a good barber near me
+      - can I get a refund from the restaurant?
+      - is this restaurant kid friendly?
+      - I want to report a bad experience
+      - how do I contact the restaurant?
+      - does this restaurant have wifi?
+      - is there parking at this restaurant?
+      - do they accept GCash?
+      - can I pay with credit card there?
+      - is the restaurant pet friendly?
+      - do they have vegetarian options?
+      - does this place offer delivery?
+      - can you order food for delivery?
+      - do they have a drive thru?
+      - is there a kids menu?
+      - what is their phone number?
+      - how to complain about a restaurant?
+      - translate this Tagalog sentence for me
+      - give me directions to the airport
+      - how do I get to Mayon Volcano?
+      - what is the weather forecast tomorrow?
+      - who is the president of the Philippines?
+      - what time is it now?
+      - calculate my bill for me
+      - how much should I tip?
+      - what movies are playing in legazpi?
+      - can you help me book a Grab?
+      - can you call a taxi for me?
+ 
+  # ─────────────────────────────────────────────
+  # LOOKUP TABLES (for EntitySynonymMapper)
+  # ─────────────────────────────────────────────
+ 
+  - lookup: aspect
+    examples: |
+      - food quality
+      - food
+      - cuisine
+      - dishes
+      - taste
+      - flavors
+      - service
+      - staff
+      - customer service
+      - hospitality
+      - waiters
+      - ambiance
+      - atmosphere
+      - vibe
+      - decor
+      - environment
+      - price value
+      - price-to-value
+      - value for money
+      - value
+      - price
+      - affordability
+      - budget
+      - overall
+      - overall sentiment
+      - overall experience
+      - overall rating
+      - general sentiment
+      - general impression
+
+  - lookup: cuisine
+    examples: |
+      - Filipino
+      - Korean
+      - Japanese
+      - Chinese
+      - Italian
+      - Vietnamese
+      - Thai
+      - Mexican
+      - Indian
+      - American
+      - Mediterranean
+      - fusion
+      - Bicolano
+      - seafood
+      - café
+      - cafe
+      - coffee shop
+      - coffee
+      - fast food
+      - grill
+      - buffet
+      - ramen
+      - pizza
+      - chicken
+      - BBQ
+      - Korean BBQ
+      - restobar
+      - bar
+      - breakfast
+      - silog
+      - mami
+      - lomi
+      - pasta
+      - steak
+      - sushi
+      - snack
+      - milk tea
+      - dessert
+      - burger
+      - shawarma
+      - dim sum
+      - hotpot
+      - tapsilog
+      - samgyupsal
+      - sizzling
+      - panciteria
+
+  - lookup: month
+    examples: |
+      - january
+      - february
+      - march
+      - april
+      - may
+      - june
+      - july
+      - august
+      - september
+      - october
+      - november
+      - december
+      - jan
+      - feb
+      - mar
+      - apr
+      - jun
+      - jul
+      - aug
+      - sep
+      - oct
+      - nov
+      - dec
+
+  - lookup: year
+    examples: |
+      - 2024
+      - 2025
+      - 2026
+
+  - lookup: signature_dish
+    examples: |
+      - bicol express
+      - laing
+      - pinangat
+      - kinalas
+      - sili ice cream
+      - pili butterscotch
+      - pili tart
+      - pili ice cream
+      - sisig
+      - crispy pata
+      - lechon kawali
+      - lechon belly
+      - lechon manok
+      - crispy liempo
+      - liempo
+      - bulalo
+      - sinigang
+      - kare kare
+      - adobo
+      - adobo flakes
+      - pancit
+      - palabok
+      - goto
+      - arroz caldo
+      - tapsilog
+      - longsilog
+      - bangsilog
+      - tokwat baboy
+      - dinuguan
+      - halo-halo
+      - bibingka
+      - puto
+      - baby back ribs
+      - chicken inasal
+      - chickenjoy
+      - chao fan
+      - beef pares
+      - beef steak
+      - beef wonton noodles
+      - ramen
+      - spicy ichiban ramen
+      - spicy pork ramen
+      - tonkatsu
+      - tempura
+      - sukiyaki
+      - unagi don
+      - bibimbap
+      - japchae
+      - tteokbokki
+      - samgyeopsal
+      - samgyupsal
+      - unlimited samgyupsal
+      - kimchi
+      - pizza
+      - hawaiian overload pizza
+      - creamy spinach dip pizza
+      - margherita pizza
+      - pasta
+      - carbonara
+      - creamy pasta
+      - okonomiyaki
+      - takoyaki
+      - chicken biryani
+      - hummus
+      - tinapa fried rice
+      - bicol express tinapa
+      - alea tsokolate lemon latte
+      - tablea coffee flan
+      - pulled beef tacos
+      - alcapone donuts
+      - unlimited chicken wings
+      - garlic butter shrimp
+      - sizzling tofu
+      - boneless bangus
+ 
+  # ─────────────────────────────────────────────
+  # SYNONYM MAPPINGS
+  # ─────────────────────────────────────────────
+ 
+  - synonym: food_quality
+    examples: |
+      - food quality
+      - food
+      - cuisine
+      - dishes
+      - taste
+      - flavors
+      - the food
+ 
+  - synonym: service
+    examples: |
+      - service
+      - staff
+      - customer service
+      - hospitality
+      - waiters
+      - waiter
+      - servers
+ 
+  - synonym: ambiance
+    examples: |
+      - ambiance
+      - atmosphere
+      - vibe
+      - decor
+      - environment
+      - setting
+      - place
+ 
+  - synonym: price_value
+    examples: |
+      - price value
+      - price-to-value
+      - value for money
+      - value
+      - price
+      - affordability
+      - budget
+      - cost
+
+  - synonym: overall
+    examples: |
+      - overall
+      - overall sentiment
+      - overall experience
+      - overall rating
+      - general sentiment
+      - general impression
+      - overall score
+      - general experience
+      - general rating
+
+  - synonym: Filipino
+    examples: |
+      - Filipino cuisine
+      - Pinoy food
+      - Pinoy restaurant
+      - local food
+      - local cuisine
+      - Bicolano food
+      - Bicolano cuisine
+
+  - synonym: Korean
+    examples: |
+      - Korean cuisine
+      - Korean food
+      - K-food
+      - Korean BBQ
+
+  - synonym: Japanese
+    examples: |
+      - Japanese cuisine
+      - Japanese food
+      - Japanese restaurant
+
+  - synonym: cafe
+    examples: |
+      - café
+      - coffee shop
+      - coffee place
+      - coffee house
+ 
+  - intent: ask_live_reviews
+    examples: |
+      - what are people saying about [zoes kitchen](restaurant_name) recently?
+      - show me recent reviews for [kims bowl](restaurant_name)
+      - pull live reviews for [Kim's Bowl Food garden](restaurant_name)
+      - fetch recent feedback on [zoes kitchen](restaurant_name)
+      - grab the newest Google reviews for [Mr. HeBrews Cafe](restaurant_name)
+      - what are customers currently saying about [Casa Lorenzo Food And Culture](restaurant_name)?
+      - give me a live review summary for [Primeroasting Cafe And Kitchen](restaurant_name)
+      - scrape recent google reviews of [Zoe's kitchen](restaurant_name)
+      - what do people think about [Spice-Up](restaurant_name) recently?
+      - summarize the latest reviews for [Alea Chocolates Cafe](restaurant_name)
+      - fetch the latest customer reviews for [Assemblr Cafe](restaurant_name)
+      - what is the current live feedback on [Kape Zebra](restaurant_name)?
+      - what are people saying about [Tapsilogan At Kinalas ni Bekla](restaurant_name) right now?
+      - can you look up recent reviews for [Arang Resto Bar](restaurant_name)?
+      - show me what people are saying online about [the spice rack](restaurant_name) right now
+      - what do recent customers say about [The Spice Rack](restaurant_name)?
+      - get live feedback for [Cres Snack Inn](restaurant_name)
+      - fetch live reviews for [Zoe's Kitchen](restaurant_name)
+      - what's currently being said about [kin coffee](restaurant_name)?
+      - scrape the latest reviews for [Angel's Pizza](restaurant_name)
+      - live review lookup for [LeSans Cafe](restaurant_name)
+      - what do customers currently say about [BridgeWalk Brew Cafe](restaurant_name)?
+      - search for new reviews on [1st Colonial Grill](restaurant_name)
+      - check Google for recent comments on [Bigg's Diner](restaurant_name)
+      - what is the latest online feedback for [Small Talk Cafe](restaurant_name)?
+      - get the most recent Google review for [Angels Pizza](restaurant_name)
+      - fetch live sentiment for [Pepa Wings](restaurant_name)
+      - are there any new reviews for [Kapihan](restaurant_name)?
+      - latest customer opinions on [Breakfast Republik](restaurant_name)
+      - what are online users saying about [Gringo](restaurant_name) lately?
+      - check recent reviews for [Lola's Bistro](restaurant_name)
+      - has anyone recently reviewed [Rockport Café](restaurant_name)?
+      - get me fresh reviews for [Seoul Korean Restaurant](restaurant_name)
+      - any new feedback on [Kyukyu Ramen](restaurant_name)?
+      - pull the most recent online comments about [Tong Yang](restaurant_name)
+      - latest Google reviews for [Kin Coffee](restaurant_name)
+      - live reviews for [four seasons](restaurant_name)
+      - what are people saying about [lakshmi](restaurant_name)
+      - recent feedback on [bec.](restaurant_name)
+      - live reviews [tong yang](restaurant_name)
+      - scrape reviews for [mcdo](restaurant_name)
+      - grab newest reviews for [jolibee](restaurant_name)
+      - recent comments on [1st colonial](restaurant_name)
+      - what do people think about [sr pizza](restaurant_name)
+      - google reviews for [chow king](restaurant_name)
+      - reviews on [kuya j](restaurant_name)
+      - live review summary for [black scoop](restaurant_name)
+      
+ 
+  - intent: ask_location_and_routing
+    examples: |
+      - where is [Jollibee](restaurant_name)?
+      - what is the address of [Starbucks](restaurant_name)?
+      - how do I get to [Bigg's Diner](restaurant_name)?
+      - location of [Small Talk Café](restaurant_name)
+      - where can I find [Breakfast Republik](restaurant_name)?
+      - give me directions to [1St Colonial Grill](restaurant_name)
+      - where is [Kapihan](restaurant_name) located?
+      - address of [Tong Yang](restaurant_name)
+      - where exactly is [Mamay's](restaurant_name)?
+      - how do I get to [Cesar's](restaurant_name)?
+      - map of [Alea Chocolates Café J&P Bldg, Rizal St](restaurant_name)
+      - where is [Kin Coffee](restaurant_name)?
+      - location of [Sumo Niku](restaurant_name)
+      - how do I find [Seoul Korean Restaurant](restaurant_name)?
+      - give me the address of [Gringo](restaurant_name)
+      - where is [Lola's Bistro](restaurant_name) in legazpi?
+      - can you show me the location of [Rockport Café](restaurant_name)?
+      - what street is [McDonald's](restaurant_name) on?
+      - where exactly is [Hap Chan](restaurant_name)?
+      - find [Kuya J Restaurant](restaurant_name) on the map
+      - how to get to [Kyukyu Ramen](restaurant_name)
+      - directions to [Ling Nam Legazpi](restaurant_name)
+      - where is [Mang Inasal](restaurant_name) located in legazpi?
+      - maps link for [Gerry's Restaurant & Bar](restaurant_name)
+      - navigate to [four seasons](restaurant_name)
+      - take me to [1st Colonial Grill](restaurant_name)
+      - I want to go to [Kapihan](restaurant_name)
+      - route to [Tong Yang](restaurant_name)
+      - navigate me to [Breakfast Republik](restaurant_name)
+      - guide me to [Cesar's](restaurant_name)
+      - I need to get to [Seoul Korean Restaurant](restaurant_name)
+      - show me the way to [Lola's Bistro](restaurant_name)
+      - I want to go to [McDonald's](restaurant_name)
+      - pin the location of [Small Talk Café](restaurant_name) on a map
+      - where can I find [Pepa Wings](restaurant_name)?
+      - what barangay is [I Love Bamboo](restaurant_name) in?
+      - what is the exact location of [Alea Chocolates Cafe](restaurant_name)?
+      - can I walk to [Calle Taza Cafe](restaurant_name) from downtown?
+      - how far is [Lofty Grounds Cafe](restaurant_name) from the city center?
+      - google maps link for [Primeroasting Cafe And Kitchen](restaurant_name)
+      - show me where [Assemblr Cafe](restaurant_name) is on the map
+      - is [Bigg's Diner](restaurant_name) near SM Legazpi?
+      - directions from downtown to [BridgeWalk Brew Cafe](restaurant_name)
+      - where is [lakshmi](restaurant_name)
+      - how do i get to [bec.](restaurant_name)
+      - location of [bec](restaurant_name)
+      - directions to [Coffee Capsules](restaurant_name)
+      - [lakshmi](restaurant_name)
+      - [bec.](restaurant_name)
+      - [jollibee](restaurant_name)
+      - where is [mcdonalds](restaurant_name)
+      - take me to [1st colonial](restaurant_name)
+      - map for [starbucks](restaurant_name)
+      - where is [coffeespot legazpi](restaurant_name)
+      - where is [coffee spot legazpi](restaurant_name)
+      - give me directions to [jco](restaurant_name)
+      - how do I get to [jco](restaurant_name)?
+      - where is [Coffee Capsules](restaurant_name)
+      - where is [kin](restaurant_name) legazpi
+      - where is [coffeespot](restaurant_name) legazpi
+      - how to get to [mcdonalds](restaurant_name)
+      - directions to [macdo](restaurant_name)
+      - where is [jolibee](restaurant_name)
+      - find [four seasons](restaurant_name)
+      - map for [sr pizza](restaurant_name)
+      - location of [chow king](restaurant_name)
+      - take me to [1st colonial](restaurant_name)
+      - route to [island tea co](restaurant_name)
+      - where is [yangmatt](restaurant_name)
+      - how do i get to [tapsilogan](restaurant_name)
+      - find [mr. ds](restaurant_name)
+      - navigate to [j.co](restaurant_name)
+      - give me directions to [jco](restaurant_name)
+      - how do I get to [angels](restaurant_name)?
+ 
+  - intent: ask_itinerary
+    examples: |
+      - I want a [cafe](cuisine) itinerary for a day in Legazpi
+      - build me a food itinerary for legazpi city
+      - give me a day plan for eating in legazpi
+      - plan my meals in legazpi for today
+      - I want to visit [Filipino](cuisine) restaurants in one day
+      - create a dining itinerary for legazpi
+      - what [cafes](cuisine) can I visit in a day in legazpi?
+      - build a [cafe](cuisine) itinerary for a day
+      - culinary tour of legazpi city
+      - plan a food trip in legazpi
+      - I want a [Korean](cuisine) restaurant itinerary
+      - day plan for [Filipino](cuisine) restaurants in legazpi
+      - I want to try [3](number) cafes in one day
+      - give me a [5](number) stop food itinerary
+      - suggest a food tour of legazpi
+      - I want to visit [cafes](cuisine) today in legazpi
+      - make me a dining plan for legazpi city
+      - I want a restaurant itinerary for today
+      - help me plan a full day of eating in legazpi
+      - what should I eat from morning to night in legazpi?
+      - breakfast lunch and dinner spots in legazpi
+      - plan a [2](number) restaurant food crawl in legazpi
+      - I have one day in legazpi, where should I eat?
+      - build a [Japanese](cuisine) food tour for legazpi
+      - plan a [seafood](cuisine) itinerary in legazpi
+      - food crawl plan for legazpi city
+      - create a [café](cuisine) hopping itinerary
+      - I want to visit [4](number) restaurants in legazpi today
+      - plan my food trip for [Filipino](cuisine) and [Korean](cuisine) places
+      - map out a day of dining in legazpi
+      - food tour with [3](number) stops in legazpi
+      - suggest a morning to evening food plan in legazpi
+      - I want a [Bicolano](cuisine) food tour in legazpi
+      - give me an itinerary for [seafood](cuisine) restaurants in legazpi
+      - plan a [Japanese](cuisine) food crawl for one day
+      - I want to hop between [café](cuisine) and [Filipino](cuisine) restaurants today
+      - day trip itinerary for [Korean](cuisine) and [Japanese](cuisine) food
+      - build me a [restobar](cuisine) itinerary for tonight
+      - plan a [5](number) stop [Filipino](cuisine) food tour
+      - I want to try [3](number) [café](cuisine) and [2](number) [Filipino](cuisine) restaurants
+      - give me a food itinerary covering [café](cuisine) and [Korean](cuisine) options
+      - plan a [Bicolano](cuisine) and [seafood](cuisine) food tour for today
+      - make a [3](number) stop [café](cuisine) hopping plan in legazpi
+      - I want a mix of [café](cuisine) and [grill](cuisine) restaurants in my itinerary
+      - build a [4](number) restaurant [Filipino](cuisine) itinerary
+      - one day [Korean](cuisine) food tour legazpi
+      - give me a [Chinese](cuisine) and [Filipino](cuisine) restaurant day plan
+      - I want a [5](number) stop food crawl with mostly [café](cuisine)
+      - plan my meals today across [Filipino](cuisine) [Korean](cuisine) and [Japanese](cuisine) restaurants
+
+  - intent: ask_restaurant_by_dish
+    examples: |
+      - where can I eat [bicol express](signature_dish)?
+      - where to eat [crispy pata](signature_dish) in legazpi?
+      - who serves the best [sisig](signature_dish)?
+      - I want to eat [ramen](signature_dish)
+      - craving for [sili ice cream](signature_dish)
+      - where to get good [pinangat](signature_dish)
+      - looking for [chicken inasal](signature_dish)
+      - which restaurant has [lechon kawali](signature_dish)?
+      - I really want some [pizza](signature_dish) today
+      - find a place with [baby back ribs](signature_dish)
+      - where can I order [pancit](signature_dish)?
+      - i want some [tinapa fried rice](signature_dish) pls
+      - where to find good [laing](signature_dish) around here?
+      - craving for [spicy ichiban ramen](signature_dish)
+      - who has the best [chickenjoy](signature_dish)
+      - where can i get an [alea tsokolate lemon latte](signature_dish)?
+      - [kare kare](signature_dish) legazpi city
+      - im looking for [chao fan](signature_dish)
+      - where to eat [okonomiyaki](signature_dish) and [takoyaki](signature_dish)
+      - any places serving [chicken biryani](signature_dish)?
+      - i need [sili ice cream](signature_dish) now
+      - where can i order [hawaiian overload pizza](signature_dish)
+      - [pili butterscotch](signature_dish)
+      - wer to buy [bcol express](signature_dish)
+      - craving [chiken mcdo](signature_dish)
+      - find me a place with [beef pares](signature_dish)
+      - where can i eat [bibimbap](signature_dish)
+      - who serves [tablea coffee flan](signature_dish)?
+      - i wanna eat [kinalas](signature_dish)
+      - [creamy spinach dip pizza](signature_dish) near me
+      - where to get [pulled beef tacos](signature_dish)
+      - best [halo-halo](signature_dish) in town?
+      - looking for [tokwat baboy](signature_dish)
+      - where do they serve [alibar chicken](signature_dish)?
+      - [alcapone donuts](signature_dish) where
+      - i want to try [bicol express tinapa](signature_dish)
+      - wer can i eat [samgyeopsal](signature_dish)
+      - craving for [samgyupsal](signature_dish)
+      - [jolly spagetti](signature_dish) location
+      - who sells [beef wonton noodles](signature_dish)
+      - grab me some [crispy pata](signature_dish)
+      - i just really want [unlimited chicken wings](signature_dish)
+      - [hummus](signature_dish) place nearby?
+      - looking for [authentc bicolano cuisine](signature_dish)
+      - any place serving [sinigang](signature_dish)?
+      - where can I get [bulalo](signature_dish) in legazpi?
+      - who has the best [palabok](signature_dish)?
+      - I want [carbonara](signature_dish) for lunch
+      - where can I find [liempo](signature_dish)?
+      - looking for [sizzling tofu](signature_dish)
+      - any restaurant with [unlimited samgyupsal](signature_dish)?
+      - I want some [arroz caldo](signature_dish)
+      - find me [beef steak](signature_dish)
+      - where can I eat [lomi](signature_dish)?
+      - craving [tapsilog](signature_dish)
+      - looking for [boneless bangus](signature_dish)
+      - any good [lechon manok](signature_dish) near here?
+      - find [goto](signature_dish)
+      - I want [longsilog](signature_dish) for breakfast
+      - restaurant that serves [bibimbap](signature_dish) and [japchae](signature_dish)
+      - where to eat [tteokbokki](signature_dish)?
+      - find [spicy pork ramen](signature_dish)
+      - I want [sukiyaki](signature_dish)
+      - craving for [tonkatsu](signature_dish)
+      - any place with [tempura](signature_dish)?
+      - where can I find [unagi don](signature_dish)?
+      - looking for [garlic butter shrimp](signature_dish)
+      - where can I eat good [dinuguan](signature_dish)?
+      - find me [creamy pasta](signature_dish)
+      - I want [margherita pizza](signature_dish)
+      - find a place with [kare kare](signature_dish)
+      - I'm looking for [chicken inasal](signature_dish) in legazpi
+      - where can I find good [tokwat baboy](signature_dish)?
+      - craving for [halo-halo](signature_dish) right now
+      - any place that serves [adobo](signature_dish)?
+      - I want [palabok](signature_dish) for merienda
+      - where to get [pili tart](signature_dish) in legazpi?
+      - find me [unlimited chicken wings](signature_dish)
+      - craving [beef pares](signature_dish) late night
+      - who has [sinigang](signature_dish) and [kare kare](signature_dish)?
+      - where can I get [crispy liempo](signature_dish)?
+      - restaurant with [bibingka](signature_dish) near me
+      - looking for [pinangat](signature_dish) and [laing](signature_dish)
+      - [bicol express](signature_dish) and [laing](signature_dish) combo?
+      - which restaurant serves authentic [pinangat](signature_dish)?
+      - I want to try [kinalas](signature_dish) and [pancit](signature_dish)
+      - find me a place with [sisig](signature_dish) and [lechon kawali](signature_dish)
+      - where can I get [pili ice cream](signature_dish)?
+      - find [adobo flakes](signature_dish) in legazpi
+      - where to get [tinapa fried rice](signature_dish)?
+      - I want to try [bicol express tinapa](signature_dish)
+      - restaurant with [kimchi](signature_dish) near legazpi
+      - craving [sinigang](signature_dish) today
+      - where can I find [baby back ribs](signature_dish) in legazpi?
+      - looking for a place with [unlimited chicken wings](signature_dish) and [crispy pata](signature_dish)
+      - who serves [garlic butter shrimp](signature_dish)?
+      - find a restaurant with [beef wonton noodles](signature_dish)
+      - where can I get [alea tsokolate lemon latte](signature_dish) in legazpi?
+      - find me [tablea coffee flan](signature_dish)
+      - craving for [pili butterscotch](signature_dish)
+      - who serves [alcapone donuts](signature_dish)?
+      - find [pulled beef tacos](signature_dish) nearby
+      - looking for good [okonomiyaki](signature_dish) and [takoyaki](signature_dish)
+      - any place that has [chicken biryani](signature_dish)?
+      - where can I find [hummus](signature_dish)?
+      - restaurant with [creamy spinach dip pizza](signature_dish)
+      - I want [hawaiian overload pizza](signature_dish)
+      - looking for [spicy ichiban ramen](signature_dish) today

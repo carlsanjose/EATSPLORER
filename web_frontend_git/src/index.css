@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Brand Palette ── */
+  --brand-dark: #505050;
+  /* neutral gray */
+  --brand-rust: #c04e2a;
+  /* terracotta / burnt orange */
+  --brand-rust-lt: #e5724a;
+  /* lighter rust for hovers */
+  --brand-amber: #e8a430;
+  /* golden accent */
+  --brand-cream: #fdf6ec;
+  /* warm white background */
+  --brand-paper: #f5ede0;
+  /* slightly deeper cream for panels */
+  --brand-green: #5a7a6e;
+  /* lighter forest green */
+  --brand-green-lt: #6a8a7e;
+  /* lighter forest green accent */
+
+  /* ── Sentiment Colors ── */
+  --positive: #2e7d4f;
+  --neutral: #b07c15;
+  --negative: #c0392b;
+
+  /* ── UI Tokens ── */
+  --bg: var(--brand-cream);
+  --bg-panel: var(--brand-paper);
+  --bg-chat: #f5f5f5;
+  /* light panel for chat */
+  --bg-bubble-bot: #e8e8e8;
+  /* light bubble background */
+  --bg-bubble-usr: var(--brand-rust);
+
+  --text: var(--brand-dark);
+  --text-inv: #fdf6ec;
+  --text-muted: #888888;
+  --border: #e0cdb8;
+  --border-dark: #c9b49a;
+
+  /* ── Typography ── */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  /* ── Spacing / Radius ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* ── Transitions ── */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+input,
+textarea {
+  font-family: var(--font-body);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}

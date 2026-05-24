@@ -1,0 +1,284 @@
+/* ══════════════════════════════════════════
+   APP LAYOUT
+══════════════════════════════════════════ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  height: 60px;
+  background: white;
+  color: var(--text);
+  flex-shrink: 0;
+  border-bottom: 2px solid var(--brand-rust);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  height: 50px;
+  max-height: 50px;
+}
+
+.header-icon {
+  display: block;
+  max-height: 100%;
+  width: auto;
+  max-width: 45px;
+}
+
+.header-logo {
+  width: auto;
+  max-height: 80%;
+  max-width: min(160px, calc(100vw - 220px));
+  object-fit: contain;
+  margin-bottom: 0;
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand-rust);
+  line-height: 1.1;
+}
+
+.header-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Browser Toggle Button ── */
+.browser-toggle-btn {
+  margin-left: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 12px;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: all 0.18s;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.browser-toggle-btn:hover {
+  background: var(--brand-rust);
+  border-color: var(--brand-rust);
+  color: white;
+}
+
+/* ── Main Split Layout ── */
+.app-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.panel {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-browser {
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.22s ease,
+    border-width 0.28s ease;
+}
+
+.browser-open {
+  width: 420px;
+  opacity: 1;
+}
+
+.browser-closed {
+  width: 0;
+  opacity: 0;
+  border-right-width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.panel-chat {
+  flex: 1;
+  background: var(--bg-chat);
+  min-width: 0;
+}
+
+/* ── Mobile Tabs ── */
+.mobile-tabs {
+  display: none;
+  margin-left: auto;
+  gap: 4px;
+}
+
+.mobile-tab {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.mobile-tab.active {
+  background: var(--brand-rust);
+  border-color: var(--brand-rust);
+  color: white;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .app {
+    height: 100dvh;
+    /* Use dynamic viewport height for mobile */
+  }
+
+  .app-header {
+    gap: 12px;
+    padding: 0 14px;
+    height: 56px;
+    flex-wrap: nowrap;
+  }
+
+  .header-brand {
+    height: 45px;
+    gap: 8px;
+  }
+
+  .header-logo {
+    width: auto;
+    max-height: 70%;
+    max-width: min(130px, calc(100vw - 180px));
+  }
+
+  .header-icon {
+    max-width: 40px;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  .header-sub {
+    font-size: 10px;
+  }
+
+  .browser-toggle-btn {
+    display: none;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .mobile-tabs {
+    display: flex;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .mobile-tab {
+    padding: 5px 12px;
+    font-size: 12px;
+    flex: none;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .app-main {
+    position: relative;
+  }
+
+  .panel {
+    position: absolute;
+    inset: 0;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  .mobile-visible {
+    display: flex;
+  }
+
+  .panel-browser {
+    width: 100% !important;
+    opacity: 1 !important;
+    border-right: none;
+  }
+
+  .panel-chat {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    height: 54px;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .header-brand {
+    height: 40px;
+    gap: 6px;
+  }
+
+  .header-logo {
+    width: auto;
+    max-height: 65%;
+    max-width: min(110px, calc(100vw - 150px));
+  }
+
+  .header-icon {
+    max-width: 35px;
+  }
+
+  .header-title {
+    font-size: 14px;
+  }
+
+  .header-sub {
+    font-size: 9px;
+  }
+
+  .mobile-tabs {
+    padding: 0 8px;
+    gap: 4px;
+  }
+
+  .mobile-tab {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,252 @@
+version: "3.1"
+
+stories:
+  # ─────────────────────────────────────────────
+  # Basic Flows
+  # ─────────────────────────────────────────────
+  - story: greet and help
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_what_can_you_do
+      - action: utter_what_can_you_do
+
+  - story: greet and top restaurants
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  - story: greet and goodbye
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  # ─────────────────────────────────────────────
+  # Top Restaurants Flows
+  # ─────────────────────────────────────────────
+  - story: ask top restaurants
+    steps:
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  - story: ask top n restaurants overall
+    steps:
+      - intent: ask_top_n_by_aspect
+      - action: action_top_n_by_aspect
+
+  # ─────────────────────────────────────────────
+  # Aspect-Based Recommendation Flows
+  # ─────────────────────────────────────────────
+  - story: ask by aspect - food quality
+    steps:
+      - intent: ask_restaurant_by_aspect
+        entities:
+          - aspect: food_quality
+      - slot_was_set:
+          - aspect: food_quality
+      - action: action_smart_filter
+
+  - story: ask by aspect - service
+    steps:
+      - intent: ask_restaurant_by_aspect
+        entities:
+          - aspect: service
+      - slot_was_set:
+          - aspect: service
+      - action: action_smart_filter
+
+  - story: ask by aspect - ambiance
+    steps:
+      - intent: ask_restaurant_by_aspect
+        entities:
+          - aspect: ambiance
+      - slot_was_set:
+          - aspect: ambiance
+      - action: action_smart_filter
+
+  - story: ask by aspect - price value
+    steps:
+      - intent: ask_restaurant_by_aspect
+        entities:
+          - aspect: price_value
+      - slot_was_set:
+          - aspect: price_value
+      - action: action_smart_filter
+
+  - story: ask top n by aspect
+    steps:
+      - intent: ask_top_n_by_aspect
+      - action: action_top_n_by_aspect
+
+  - story: ask negative warning
+    steps:
+      - intent: ask_negative_warning
+      - action: action_negative_warning
+
+  - story: ask multi aspect
+    steps:
+      - intent: ask_multi_aspect
+      - action: action_smart_filter
+
+  # ─────────────────────────────────────────────
+  # Restaurant Info Flows
+  # ─────────────────────────────────────────────
+  - story: ask restaurant info
+    steps:
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: ask restaurant info then follow up
+    steps:
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  # ─────────────────────────────────────────────
+  # Positive/Negative Polarity Flows
+  # ─────────────────────────────────────────────
+  - story: ask positive restaurants
+    steps:
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  # ─────────────────────────────────────────────
+  # Out of Scope and Fallback
+  # ─────────────────────────────────────────────
+  - story: out of scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - story: out of scope then redirect
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  # ─────────────────────────────────────────────
+  # Multi-turn Conversations
+  # ─────────────────────────────────────────────
+  - story: multi-turn aspect then restaurant info
+    steps:
+      - intent: ask_restaurant_by_aspect
+      - action: action_smart_filter
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: multi-turn top n then info
+    steps:
+      - intent: ask_top_n_by_aspect
+      - action: action_top_n_by_aspect
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: multi-turn greeting aspect and goodbye
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_restaurant_by_aspect
+      - action: action_smart_filter
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask live reviews with restaurant name
+    steps:
+      - intent: ask_live_reviews
+      - action: action_live_review_summary
+
+  - story: ask live reviews then info
+    steps:
+      - intent: ask_live_reviews
+      - action: action_live_review_summary
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: ask restaurant info then live reviews
+    steps:
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+      - intent: ask_live_reviews
+      - action: action_live_review_summary
+
+  - story: ask location then info
+    steps:
+      - intent: ask_location_and_routing
+      - action: action_location
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: ask info then location
+    steps:
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+      - intent: ask_location_and_routing
+      - action: action_location
+
+  - story: itinerary then restaurant info
+    steps:
+      - intent: ask_itinerary
+      - action: action_itinerary_builder
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  # ─────────────────────────────────────────────
+  # Best By Month Flows
+  # ─────────────────────────────────────────────
+  - story: ask best restaurant by month
+    steps:
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+
+  - story: ask best by month then restaurant info
+    steps:
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - story: ask best by month then top restaurants
+    steps:
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  - story: greet then ask best by month
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+
+  - story: ask best by month then goodbye
+    steps:
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: top restaurants then best by month
+    steps:
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+      - intent: ask_best_by_month
+      - action: action_best_by_month
+
+  - story: aspect query then best by month
+    steps:
+      - intent: ask_restaurant_by_aspect
+      - action: action_smart_filter
+      - intent: ask_best_by_month
+      - action: action_best_by_month

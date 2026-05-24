@@ -1,0 +1,1863 @@
+/* ══════════════════════════════════════════
+   CHAT PANEL
+══════════════════════════════════════════ */
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-chat);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.chat-avatar {
+  width: 38px;
+  height: 38px;
+  background: var(--brand-rust);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.chat-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--font-display);
+}
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #999;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ecb82;
+  flex-shrink: 0;
+}
+
+.status-dot.thinking {
+  background: var(--brand-amber);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.chat-clear {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #999;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.chat-clear:hover {
+  background: #e8e8e8;
+  color: var(--text);
+}
+
+/* ── Messages ── */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  animation: slideUp 0.25s var(--ease) both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-avatar {
+  width: 28px;
+  height: 28px;
+  background: var(--brand-rust);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Bot response — clean prose, no dark box */
+.bot-response {
+  flex: 1;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.75;
+  max-width: calc(100% - 38px);
+}
+
+.bot-response-error {
+  color: #ff9a9a;
+}
+
+/* User message — simple pill */
+.user-bubble {
+  background: var(--brand-rust);
+  color: white;
+  padding: 9px 14px;
+  border-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-sm);
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: 75%;
+}
+
+/* Conversational header — shown above restaurant cards */
+.response-header {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 2px solid var(--brand-rust);
+}
+
+.response-header strong {
+  color: var(--brand-amber);
+}
+
+.response-header em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Response text formatting */
+.response-text strong {
+  color: var(--brand-amber);
+  font-weight: 600;
+}
+
+.response-text em {
+  color: #666;
+  font-style: italic;
+}
+
+.response-text ul {
+  margin: 6px 0 6px 4px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.response-text li {
+  padding-left: 14px;
+  position: relative;
+}
+
+.response-text li::before {
+  content: '·';
+  position: absolute;
+  left: 3px;
+  color: var(--brand-rust);
+  font-weight: 700;
+}
+
+.response-hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 10px 0;
+}
+
+/* Legacy bubble class kept for typing indicator */
+.bubble {
+  max-width: 75%;
+  padding: 11px 15px;
+  border-radius: var(--radius-lg);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.bubble-bot {
+  background: var(--bg-bubble-bot);
+  color: var(--text);
+  border-bottom-left-radius: var(--radius-sm);
+  border: 1px solid #ddd;
+}
+
+/* Typing indicator */
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 18px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: var(--brand-rust);
+  border-radius: 50%;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+
+
+/* Quick reply buttons inside bot message */
+.bubble-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.bubble-btn {
+  padding: 5px 12px;
+  border: 1px solid var(--brand-rust);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--brand-amber);
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.bubble-btn:hover {
+  background: var(--brand-rust);
+  color: white;
+}
+
+/* ── Suggestions ── */
+.suggestions {
+  padding: 0 16px 12px;
+  flex-shrink: 0;
+}
+
+.suggestions-label {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  color: #666;
+  font-size: 12px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.suggestion-chip:hover {
+  background: var(--brand-rust);
+  border-color: var(--brand-rust);
+  color: white;
+}
+
+/* ── Chat Input ── */
+.chat-input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #f0f0f0;
+  border-top: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.chat-input {
+  flex: 1;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: 13.5px;
+  padding: 10px 14px;
+  resize: none;
+  line-height: 1.5;
+  max-height: 100px;
+  overflow-y: auto;
+  transition: border-color 0.2s;
+}
+
+.chat-input::placeholder {
+  color: #bbb;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--brand-rust);
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-rust);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease);
+}
+
+.send-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: var(--brand-rust-lt);
+  transform: scale(1.08);
+}
+
+.send-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ══════════════════════════════════════════
+   RESTAURANT BROWSER
+══════════════════════════════════════════ */
+
+.browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.browser-header {
+  padding: 18px 20px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.browser-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  letter-spacing: -0.02em;
+}
+
+.browser-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Search */
+.browser-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 16px 8px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.search-clear:hover {
+  background: var(--border);
+}
+
+/* Filter Groups */
+.filter-group {
+  padding: 0 16px 10px;
+  flex-shrink: 0;
+}
+
+.filter-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.chip {
+  padding: 5px 11px;
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  background: white;
+  color: var(--text-muted);
+  font-size: 12px;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: var(--brand-rust);
+  color: var(--brand-rust);
+}
+
+.chip-active {
+  background: var(--brand-rust);
+  border-color: var(--brand-rust);
+  color: white !important;
+}
+
+.chip-sm {
+  padding: 4px 9px;
+  font-size: 11px;
+}
+
+/* Results List */
+.browser-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 12px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.browser-results::-webkit-scrollbar {
+  width: 4px;
+}
+
+.browser-results::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.browser-error {
+  padding: 16px;
+  background: #fff3f3;
+  border: 1px solid #ffcaca;
+  border-radius: var(--radius-md);
+  color: var(--negative);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.browser-error button {
+  margin-left: auto;
+  background: white;
+  border: 1px solid var(--negative);
+  color: var(--negative);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.browser-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.browser-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px;
+}
+
+.card-skeleton {
+  height: 70px;
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg-panel) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  border-radius: var(--radius-md);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESTAURANT CARD
+══════════════════════════════════════════ */
+
+.restaurant-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  position: relative;
+}
+
+.restaurant-card:hover {
+  border-color: var(--brand-rust);
+  box-shadow: 0 2px 12px rgba(192, 78, 42, 0.1);
+  transform: translateY(-1px);
+}
+
+.card-expanded {
+  border-color: var(--brand-rust);
+  box-shadow: 0 4px 20px rgba(192, 78, 42, 0.12);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-rank {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 24px;
+  padding-top: 2px;
+  font-family: var(--font-display);
+}
+
+.card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--brand-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.card-dot {
+  color: var(--border-dark);
+}
+
+.card-reviews {
+  color: var(--text-muted);
+}
+
+.card-score-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  border: 1.5px solid;
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+
+.score-num {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-denom {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Highlighted aspect chip */
+.card-highlight {
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  background: var(--bg-panel);
+  border-radius: var(--radius-sm);
+}
+
+/* Score bar */
+.score-bar-row {
+  margin-top: 8px;
+}
+
+.score-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s var(--ease);
+}
+
+/* Expanded Aspects */
+.aspects-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0 10px;
+}
+
+.card-aspects {
+  animation: fadeIn 0.2s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.aspect-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.aspect-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.aspect-label {
+  width: 90px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.aspect-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.aspect-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s var(--ease);
+}
+
+.aspect-score {
+  font-weight: 600;
+  font-size: 12px;
+  width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.aspect-count {
+  color: var(--text-muted);
+  font-size: 10px;
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.aspect-na {
+  color: var(--border-dark);
+  font-size: 11px;
+  flex: 1;
+}
+
+.aspects-footer {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
+
+/* Expand Hint */
+.card-expand-hint {
+  text-align: center;
+  font-size: 10px;
+  color: var(--border-dark);
+  margin-top: 6px;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.restaurant-card:hover .card-expand-hint {
+  color: var(--brand-rust);
+}
+
+/* ── Restaurant Info Panel ── */
+.info-panel {
+  margin-top: 4px;
+}
+
+.info-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0 10px;
+}
+
+.info-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.info-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.info-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-muted);
+  margin-bottom: 1px;
+}
+
+.info-value {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Map toggle button */
+.map-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--brand-rust);
+  background: none;
+  border: 1px solid var(--brand-rust);
+  border-radius: 20px;
+  padding: 4px 11px;
+  margin: 4px 0 10px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.map-toggle-btn:hover,
+.map-toggle-active {
+  background: var(--brand-rust);
+  color: white;
+}
+
+.map-toggle-active svg {
+  stroke: white;
+}
+
+/* Embedded map */
+.map-embed-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+  animation: mapReveal 0.25s ease both;
+}
+
+@keyframes mapReveal {
+  from {
+    opacity: 0;
+    transform: scaleY(0.92);
+    transform-origin: top;
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.map-embed {
+  width: 100%;
+  height: 220px;
+  border: none;
+  display: block;
+}
+
+.info-loading {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 6px 0;
+}
+
+/* ── Cuisine Type Badge ── */
+.cuisine-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--brand-rust);
+  background: rgba(192, 78, 42, 0.08);
+  border: 1px solid rgba(192, 78, 42, 0.25);
+  border-radius: 20px;
+  padding: 2px 9px;
+  margin-bottom: 8px;
+}
+
+/* Cuisine badge on card header (collapsed state) */
+.card-cuisine {
+  font-size: 10px;
+  color: var(--brand-rust);
+  background: rgba(192, 78, 42, 0.07);
+  border: 1px solid rgba(192, 78, 42, 0.2);
+  border-radius: 20px;
+  padding: 1px 7px;
+  margin-top: 3px;
+  display: inline-block;
+  letter-spacing: .03em;
+}
+
+/* Navigation directions button */
+.map-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 10px;
+  flex-wrap: wrap;
+}
+
+.nav-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--brand-green);
+  background: rgba(45, 74, 62, 0.08);
+  border: 1px solid rgba(45, 74, 62, 0.25);
+  border-radius: 20px;
+  padding: 4px 11px;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+
+.nav-directions-btn:hover {
+  background: var(--brand-green);
+  color: white;
+}
+
+/* Navigation URL rendered in chat bubble */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--brand-green);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 4px 0;
+}
+
+.nav-btn:hover {
+  background: var(--brand-green-lt);
+}
+
+.maps-link-inline {
+  color: var(--brand-rust);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.inline-link {
+  color: var(--brand-rust);
+  word-break: break-all;
+  font-size: 12px;
+}
+
+/* ══════════════════════════════════════════
+   RESTAURANT CARDS INSIDE CHAT BUBBLES
+══════════════════════════════════════════ */
+
+.chat-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.chat-cards .restaurant-card {
+  background: #FFFFF9;
+  border-color: #00000020;
+}
+
+.chat-cards .restaurant-card:hover {
+  border-color: var(--brand-rust);
+}
+
+.chat-cards .card-expanded {
+  border-color: var(--brand-rust);
+}
+
+/* Text — lighten for dark bg */
+.chat-cards .card-name {
+  color: #000000;
+}
+
+.chat-cards .card-rank {
+  color: #7a5c3e;
+}
+
+.chat-cards .card-reviews {
+  color: #9a7a58;
+}
+
+.chat-cards .card-dot {
+  color: #5a4530;
+}
+
+.chat-cards .score-denom {
+  color: #9a7a58;
+}
+
+.chat-cards .card-expand-hint {
+  color: #5a4530;
+}
+
+.chat-cards .restaurant-card:hover .card-expand-hint {
+  color: var(--brand-rust);
+}
+
+/* Aspect rows */
+.chat-cards .aspect-label {
+  color: #9a7a58;
+}
+
+.chat-cards .aspect-count {
+  color: #5a4530;
+}
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVE STYLES
+══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* Chat Panel */
+  .chat-panel {
+    width: 100%;
+  }
+
+  .chat-header {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .chat-title {
+    font-size: 13px;
+  }
+
+  .chat-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .chat-messages {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
+  .message {
+    gap: 8px;
+  }
+
+  .bot-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .bot-response {
+    font-size: 13px;
+    max-width: calc(100% - 34px);
+  }
+
+  .user-bubble {
+    max-width: 85%;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .response-header {
+    font-size: 13px;
+  }
+
+  .chat-input-area {
+    padding: 12px 12px;
+    gap: 6px;
+  }
+
+  .chat-input {
+    font-size: 13px;
+    padding: 8px 12px;
+    max-height: 80px;
+  }
+
+  .send-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .send-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Browser Panel */
+  .browser-header {
+    padding: 14px 16px 10px;
+  }
+
+  .browser-title {
+    font-size: 18px;
+  }
+
+  .browser-sub {
+    font-size: 11px;
+  }
+
+  .browser-search {
+    margin: 10px 12px 6px;
+    padding: 6px 10px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
+  .filter-group {
+    padding: 0 12px 8px;
+  }
+
+  .filter-label {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+
+  .filter-chips {
+    gap: 4px;
+  }
+
+  .chip {
+    padding: 4px 9px;
+    font-size: 11px;
+  }
+
+  .browser-results {
+    padding: 2px 8px 12px;
+  }
+
+  /* Restaurant Card */
+  .restaurant-card {
+    padding: 10px 12px;
+    margin-bottom: 6px;
+  }
+
+  .card-header {
+    gap: 8px;
+  }
+
+  .card-rank {
+    font-size: 10px;
+    min-width: 20px;
+  }
+
+  .card-name {
+    font-size: 12.5px;
+  }
+
+  .card-meta {
+    font-size: 10px;
+  }
+
+  .card-score-badge {
+    padding: 2px 6px;
+  }
+
+  .score-num {
+    font-size: 14px;
+  }
+
+  .score-denom {
+    font-size: 9px;
+  }
+
+  .card-highlight {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .aspect-row {
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  .aspect-icon {
+    font-size: 13px;
+  }
+
+  .aspect-label {
+    width: 80px;
+    font-size: 10px;
+  }
+
+  .aspect-score {
+    font-size: 11px;
+    width: 28px;
+  }
+
+  .aspect-count {
+    font-size: 9px;
+    width: 24px;
+  }
+
+  /* Suggestions */
+  .suggestions {
+    padding: 0 12px 10px;
+  }
+
+  .suggestions-label {
+    font-size: 10px;
+  }
+
+  .suggestion-chip {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .bubble-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Chat Adjustments */
+  .chat-header {
+    padding: 10px 12px;
+  }
+
+  .chat-title {
+    font-size: 12px;
+  }
+
+  .chat-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .chat-messages {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  .bot-avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .bot-response {
+    font-size: 12.5px;
+    max-width: calc(100% - 32px);
+  }
+
+  .user-bubble {
+    max-width: 90%;
+    padding: 7px 11px;
+    font-size: 12.5px;
+  }
+
+  .response-header {
+    font-size: 12.5px;
+  }
+
+  .chat-input-area {
+    padding: 10px 10px;
+  }
+
+  .chat-input {
+    font-size: 12.5px;
+    padding: 7px 10px;
+  }
+
+  .send-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .send-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Browser Adjustments */
+  .browser-header {
+    padding: 12px 12px 8px;
+  }
+
+  .browser-title {
+    font-size: 16px;
+  }
+
+  .browser-sub {
+    font-size: 10px;
+  }
+
+  .browser-search {
+    margin: 8px 10px 4px;
+    padding: 5px 8px;
+  }
+
+  .search-input {
+    font-size: 11px;
+  }
+
+  .filter-group {
+    padding: 0 10px 6px;
+  }
+
+  .filter-label {
+    font-size: 8px;
+  }
+
+  .chip {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .browser-results {
+    padding: 0 6px 10px;
+  }
+
+  /* Restaurant Card */
+  .restaurant-card {
+    padding: 8px 10px;
+    margin-bottom: 5px;
+  }
+
+  .card-rank {
+    font-size: 9px;
+    min-width: 18px;
+  }
+
+  .card-name {
+    font-size: 12px;
+  }
+
+  .card-meta {
+    font-size: 9px;
+  }
+
+  .score-num {
+    font-size: 13px;
+  }
+
+  .score-denom {
+    font-size: 8px;
+  }
+
+  .card-highlight {
+    font-size: 10.5px;
+    padding: 2px 5px;
+  }
+
+  .aspect-row {
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+
+  .aspect-icon {
+    font-size: 12px;
+  }
+
+  .aspect-label {
+    width: 70px;
+    font-size: 9px;
+  }
+
+  .aspect-score {
+    font-size: 10px;
+    width: 26px;
+  }
+
+  .aspect-count {
+    font-size: 8px;
+    width: 22px;
+  }
+
+  /* Suggestions */
+  .suggestions {
+    padding: 0 10px 8px;
+  }
+
+  .suggestions-label {
+    font-size: 9px;
+  }
+
+  .suggestion-chip {
+    padding: 4px 9px;
+    font-size: 10px;
+  }
+
+  .bubble-btn {
+    padding: 3px 9px;
+    font-size: 10px;
+  }
+
+  /* Info Panel */
+  .info-value {
+    font-size: 11px;
+  }
+
+  .map-embed {
+    height: 180px;
+  }
+}
+
+.chat-cards .aspect-na {
+  color: #5a4530;
+}
+
+.chat-cards .aspects-footer {
+  color: #5a4530;
+  border-top-color: #3a2a18;
+}
+
+.chat-cards .aspects-divider {
+  background: #3a2a18;
+}
+
+.chat-cards .score-bar-track {
+  background: #3a2a18;
+}
+
+.chat-cards .aspect-bar-wrap {
+  background: #3a2a18;
+}
+
+/* Info panel */
+.chat-cards .info-summary {
+  color: #9a7a58;
+}
+
+.chat-cards .info-label {
+  color: #7a5c3e;
+}
+
+.chat-cards .info-value {
+  color: #e8d5b8;
+}
+
+.chat-cards .info-divider {
+  background: #3a2a18;
+}
+
+.chat-cards .info-loading {
+  color: #7a5c3e;
+}
+
+/* Cuisine badge */
+.chat-cards .cuisine-badge,
+.chat-cards .card-cuisine {
+  color: #e8a430;
+  background: rgba(232, 164, 48, 0.10);
+  border-color: rgba(232, 164, 48, 0.25);
+}
+
+/* Show map button */
+.chat-cards .map-toggle-btn {
+  color: var(--brand-rust);
+  border-color: var(--brand-rust);
+  background: transparent;
+}
+
+.chat-cards .map-toggle-btn:hover,
+.chat-cards .map-toggle-active {
+  background: var(--brand-rust);
+  color: #fff;
+}
+
+/* Get Directions button */
+.chat-cards .nav-directions-btn {
+  color: #4caf82;
+  background: rgba(76, 175, 130, 0.10);
+  border-color: rgba(76, 175, 130, 0.30);
+}
+
+.chat-cards .nav-directions-btn:hover {
+  background: #2e7d4f;
+  color: #fff;
+}
+
+/* Map embed + misc */
+.chat-cards .map-embed-wrap {
+  border-color: #3a2a18;
+}
+
+.chat-cards .card-highlight {
+  background: #3a2a18;
+  color: #9a7a58;
+}
+
+/* ══════════════════════════════════════════
+   LIVE REVIEWS PANEL
+══════════════════════════════════════════ */
+
+/* Trigger button — appears inside expanded card */
+.live-reviews-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-rust);
+  background: rgba(192, 78, 42, 0.06);
+  border: 1px solid rgba(192, 78, 42, 0.30);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin: 4px 0 8px;
+  cursor: pointer;
+  transition: all 0.18s;
+  width: 100%;
+  justify-content: center;
+}
+
+.live-reviews-btn:hover {
+  background: var(--brand-rust);
+  color: #fff;
+}
+
+/* Panel container */
+.live-panel {
+  margin: 6px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.live-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+}
+
+.live-panel-title {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text);
+  flex: 1;
+}
+
+.live-google-rating {
+  font-size: 11px;
+  color: var(--brand-amber);
+  font-weight: 500;
+}
+
+.live-panel-close {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.live-panel-close:hover {
+  color: var(--brand-rust);
+}
+
+/* Loading state */
+.live-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.live-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--brand-rust);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error */
+.live-error {
+  padding: 10px 12px;
+  color: var(--negative);
+  font-size: 12px;
+}
+
+/* Review list */
+.live-reviews-list {
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+/* Individual review */
+.live-review-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.live-review-item:last-child {
+  border-bottom: none;
+}
+
+.live-review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.live-review-header:hover {
+  background: var(--bg-panel);
+}
+
+.live-review-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.live-review-author {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.live-stars {
+  color: var(--brand-amber);
+  font-size: 11px;
+  letter-spacing: -0.5px;
+}
+
+.live-review-time {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.live-review-toggle {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Expanded review body */
+.live-review-body {
+  padding: 8px 12px 12px;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border);
+}
+
+.live-review-text {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* ABSA grid — 2x2 for the 4 aspects */
+.absa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.absa-cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.absa-na-cell {
+  opacity: 1.0;
+}
+
+.absa-icon {
+  font-size: 12px;
+}
+
+.absa-label {
+  color: #b8a898;
+}
+
+.absa-val {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.absa-na-val {
+  color: #e8d5b8;
+  font-weight: 600;
+}
+
+.absa-conf {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.absa-na {
+  font-size: 11px;
+  color: #e8d5b8;
+  padding: 4px 0;
+}
+
+/* ── Chat cards — inherit light theme instead of forcing dark ── */
+.chat-cards .live-reviews-btn {
+  color: var(--brand-rust);
+  background: rgba(192, 78, 42, 0.06);
+  border-color: rgba(192, 78, 42, 0.30);
+}
+
+.chat-cards .live-reviews-btn:hover {
+  background: var(--brand-rust);
+  color: #fff;
+  border-color: var(--brand-rust);
+}
+
+.chat-cards .live-panel {
+  border-color: var(--border);
+}
+
+.chat-cards .live-panel-header {
+  background: var(--bg-panel);
+  border-bottom-color: var(--border);
+}
+
+.chat-cards .live-panel-title {
+  color: var(--text);
+}
+
+.chat-cards .live-review-header:hover {
+  background: var(--bg-panel);
+}
+
+.chat-cards .live-review-author {
+  color: var(--text);
+}
+
+.chat-cards .live-review-body {
+  background: var(--bg-panel);
+  border-top-color: var(--border);
+}
+
+.chat-cards .live-review-item {
+  border-bottom-color: var(--border);
+}
+
+.chat-cards .absa-cell {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+.chat-cards .live-error {
+  color: var(--negative);
+}
+
+.chat-cards .live-loading {
+  color: var(--text-muted);
+}

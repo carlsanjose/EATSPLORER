@@ -1,0 +1,211 @@
+version: "3.1"
+
+nlu:
+  - lookup: restaurant_name
+    examples: |
+        - Coffee Capsules
+        - Lakshmi Food House
+        - Koki St. Lounge
+        - CoffeeSpot Legazpi
+        - Tong Yang
+        - The Spice Rack Food House
+        - Rockport Cafe
+        - Pepa Wings
+        - Gong Cha
+        - Cesar's
+        - Seoul Korean Restaurant
+        - Tapsilogan At Kinalas ni Bekla
+        - I Love Bamboo
+        - Gerry's Bar & Restaurant
+        - Mamay's
+        - Little Light Cafe
+        - Gringo
+        - Takoyadon | Sm City Legazpi
+        - Kape Zebra
+        - Kim's Bowl Food Garden
+        - Ling Nam Legazpi
+        - Primos Pares
+        - Graceland
+        - Kapihan
+        - Kin Coffee
+        - Small Talk Café
+        - Angel's Pizza
+        - Don- Pollo Chicken Biryani And Hummus
+        - Casa Lorenzo Food And Culture
+        - Smoke 'N Grill
+        - Mr. HeBrews Cafe
+        - Lofty Grounds Cafe
+        - Jiah Kitchen
+        - Hap Chan
+        - Sibid-Sibid Food Park
+        - Spice-Up
+        - Lola Feling Restaurant Legazpi
+        - Chef Lee
+        - Botejyu
+        - Chachi's Kitchen
+        - Better Batter Cafe
+        - Zoe's Kitchen
+        - Primeroasting Café And Kitchen
+        - Breakfast Republik
+        - Alea Chocolates Cafe
+        - Calle Taza Cafe
+        - Kyukyu Ramen
+        - Alibar
+        - Yangmatt Unli Wings N Tea Legazpi
+        - Greenwich
+        - Palamigan
+        - 1st Colonial Grill
+        - Uncle Ton's
+        - Ribshack
+        - BridgeWalk Brew Cafe
+        - Bee's Coffee House
+        - Black Scoop Cafe
+        - Bigg's Diner
+        - LeSans Cafe
+        - 528 Ilawod Cafe 
+        - Jollikod
+        - Lola's Bistro
+        - Golden Dragon Restaurant
+        - Cres Snack Inn
+        - Bec. Cafe
+        - Starbucks
+        - Mang Inasal
+        - Figaro Coffee
+        - Romantic Baboy
+        - Aroy Mack Asian Café
+        - Layag Restaurant And Grill
+        - Kuya J Restaurant
+        - Dampa Express-Legazpi
+        - Assemblr Cafe
+        - Arang Resto Bar
+        - Mr. D's
+        - Arl-Lutong Bicol Atbp.
+        - Sumo Niku
+        - J.Co Donuts & Coffee
+        - Casa De Sikatuna Garden Restaurant
+        - Four Seasons Restaurant
+        - McDonald's
+        - Island Tea Co & Ceylon Coffe Club Legazpi
+        - Kusina Zebra
+        - Jollibee
+        - Chowking
+        - Pares King
+        - FARIS Bar And Restaurant
+        - S&R New York Style Pizza
+
+  - lookup: signature_dish
+    examples: |
+        - Sili Ice Cream, Tinapa Fried Rice
+        - Sili Ice Cream, Tinapa Fried Rice
+        - Coffee infused with sili and pili
+        - Alea Tsokolate Lemon Latte, Alea Chocolate Cake
+        - Alea Tsokolate Lemon Latte, Alea Chocolate Cake
+        - Yang Chao Fried Rice, Alibar Chicken, Carrot Cake
+        - Creamy Spinach Dip Pizza, Chicken Aloha
+        - Creamy Spinach Dip Pizza, Chicken Aloha
+        - Filipino dishes, Adobo, Sinigang
+        - Authentic Lutong Bicol (Home-cooked Bicolano food)
+        - Asian fusion dishes
+        - Freshly brewed custom coffee, pastries
+        - Coffee and Pastries
+        - Spiced Latte, Oat Latte, Pili Butterscotch
+        - Strawberry Biscoff with Banana Pudding, Premium pastries
+        - Fried Chicken, Cordon Bleu, Berry Cheesecake
+        - Fried Chicken, Cordon Bleu, Berry Cheesecake
+        - Fried Chicken, Cordon Bleu, Berry Cheesecake
+        - Fried Chicken, Cordon Bleu, Berry Cheesecake
+        - Milk Tea, Coffee, Frappes, Rice Meals
+        - Milk Tea, Coffee, Frappes, Rice Meals
+        - Okonomiyaki, Takoyaki, Ramen
+        - All-day breakfast meals, Silog meals
+        - Coffee, Pastries, Pasta
+        - Espresso, Cakes
+        - Filipino dishes, Seafood
+        - Traditional Bicolano food, Laing, Pinangat
+        - Filipino comfort food
+        - Baked treats, Pasta
+        - Asian cuisine, Noodles
+        - Chao Fan, Halo-Halo, Chinese-style Fried Chicken
+        - Chao Fan, Halo-Halo, Chinese-style Fried Chicken
+        - Specialty Coffee
+        - Frappes, Sandwiches
+        - Snacks, Pancit
+        - Seafood Paluto, Buttered Shrimp
+        - Chicken Biryani, Hummus
+        - Bar chow, Beers
+        - Brewed Coffee, Pasta, Sandwiches
+        - Sisig, Inihaw na Pusit
+        - Sisig, Inihaw na Pusit
+        - Wintermelon Milk Tea
+        - Bicol Express, Fried Chicken
+        - Bicol Express, Fried Chicken
+        - Bicol Express, Fried Chicken
+        - Hawaiian Overload Pizza, Lasagna Supreme
+        - Hawaiian Overload Pizza, Lasagna Supreme
+        - Southern Spice Chicken, Ribs
+        - Dimsum, Pancit Canton
+        - Grilled meats, Seafood
+        - Pure Ceylon Tea, Milk Tea
+        - Alcapone Donuts, J.Coccino
+        - Samgyeopsal, Korean Fried Chicken
+        - Chickenjoy, Jolly Spaghetti
+        - Chickenjoy, Jolly Spaghetti
+        - Chickenjoy, Jolly Spaghetti
+        - Chickenjoy, Jolly Spaghetti
+        - Chickenjoy, Jolly Spaghetti
+        - Chickenjoy, Jolly Spaghetti
+        - Silog Meals
+        - Brewed Coffee, Pastries
+        - Kape Barako, Suman
+        - Bibimbap, Ramen
+        - Specialty Coffee, Croffles
+        - Cocktails, Bar Chow
+        - Bicolano Cuisine, Filipino Comfort Food
+        - Crispy Pata, Kare Kare, Chorizo, Tablea Coffee Flan
+        - Spicy Ichiban Ramen, Red Dragon Ramen, Tonkotsu Ramen
+        - Vegetarian food
+        - Seafood
+        - Seasons Chicken
+        - Golden Dragon Chicken, Meatball Soup
+        - Golden Dragon Chicken, Meatball Soup
+        - Signature Ensaymada Sandwich, Marinated Chicken Skewer, Nasi Goreng with Chicken Satay
+        - Beef Wonton Noodles
+        - Iced Spanish Latte
+        - Filipino Cuisine
+        - Filipino Cuisine
+        - Chili Cheese Fries, Chili Cheese Dogs, Mamay's Burger
+        - Chicken Inasal
+        - Chicken Inasal
+        - Chicken Inasal
+        - Chicken Inasal
+        - Chicken McDo, Fries, Burgers
+        - Chicken McDo, Fries, Burgers
+        - Chicken McDo, Fries, Burgers
+        - Chicken McDo, Fries, Burgers
+        - Pizza, Pasta, Soft Tacos
+        - Milktea, Coffee, Pastries
+        - Pancit Palamigan
+        - Bopis, Bicol Express
+        - Bicol Express Tinapa
+        - El Pepa Chicken
+        - Pulled Beef Tacos, Steaks
+        - Spareribs, Backribs, Pork BBQ
+        - Herb Samgyupsal
+        - Cheesy Burger Deluxe Pizza, New York Salisbury Steak
+        - Ramen, Tteokbokki, Kimchi
+        - Authentic Bicolano Cuisine
+        - Asian Cuisine, Bicolano Specialties, Creamy Pasta
+        - Tokwat Baboy, Lomi
+        - Tokwat Baboy, Lomi
+        - Grilled meats, BBQ Skewers
+        - Triple Chocolate Cake, Cheese Flat Bread, Chocolate Cookies
+        - Triple Chocolate Cake, Cheese Flat Bread, Chocolate Cookies
+        - Japanese Beef, Wagyu
+        - Takoyaki, Yakisoba, Donburi, Pork Katsudon, Chicken Teriyaki
+        - South Asian Cuisine
+        - Samgyeopsal, Sushi, Mixed Green Salads
+        - Brick Oven Pizza, Pasta
+        - Unlimited Chicken Wings, Bottomless Iced Tea
+        - Baby Back Ribs, Grilled Tuna Belly, Chicken Teriyaki, Buffalo Wings, Salt and Pepper Squid
+        - Beef Pares
+        - Kinalas, Tapsilog

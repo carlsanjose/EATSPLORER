@@ -1,0 +1,87 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Handle what can you do
+    steps:
+      - intent: ask_what_can_you_do
+      - action: utter_what_can_you_do
+
+  - rule: Handle out of scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: Handle fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default
+
+  - rule: Ask top restaurants overall
+    steps:
+      - intent: ask_top_restaurants
+      - action: action_recommend_top_restaurants
+
+  - rule: Multi-aspect query with no entities
+    steps:
+      - intent: ask_multi_aspect
+      - action: action_smart_filter
+
+  - rule: Restaurant info with name
+    steps:
+      - intent: ask_restaurant_info
+      - action: action_restaurant_info
+
+  - rule: Restaurant by aspect routing to smart filter
+    steps:
+      - intent: ask_restaurant_by_aspect
+      - action: action_smart_filter
+  
+  - rule: Ask top N by aspect
+    steps:
+      - intent: ask_top_n_by_aspect
+      - action: action_top_n_by_aspect
+
+  - rule: Negative warning overview
+    steps:
+      - intent: ask_negative_warning
+      - action: action_negative_warning
+
+  - rule: Handle live review lookup
+    steps:
+      - intent: ask_live_reviews
+      - action: action_live_review_summary
+
+  - rule: Handle itinerary request
+    steps:
+      - intent: ask_itinerary
+      - action: action_itinerary_builder
+
+  - rule: Handle location and routing query
+    steps:
+      - intent: ask_location_and_routing
+      - action: action_location
+  
+  - rule: Restaurant by dish routing to smart filter
+    steps:
+      - intent: ask_restaurant_by_dish
+      - action: action_smart_filter
+
+  - rule: Handle best restaurant by month
+    steps:
+      - intent: ask_best_by_month
+      - action: action_best_by_month
